@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>West Coast Fly — BC fishing reference</title>
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#1B3A5C" />
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="WC Fly" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:   '#1B3A5C',
+          teal:   '#2E7D6B',
+          salmon: '#C0604A',
+          gold:   '#B8860B',
+          ink:    '#444444',
+          ink2:   '#666666',
+          off:    '#F8F7F4',
+          line:   '#E5E5E0',
+          softblue:'#F0F4F8',
+          amber50:'#FFF8E1',
+        },
+        fontFamily: {
+          sans: ['system-ui','-apple-system','Segoe UI','Roboto','Helvetica','Arial','sans-serif'],
+        },
+        boxShadow: {
+          panel: '0 -8px 24px rgba(27,58,92,0.12)',
+          card:  '0 1px 0 rgba(27,58,92,0.04)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html, body { background: #F8F7F4; color: #1B3A5C; }
+  body { font-family: system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing: antialiased; }
+  /* hide native scrollbars on horizontal scroll rows */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+  /* nicer pill borders */
+  .pill { border: 1px solid #E5E5E0; }
+  /* prevent layout shift on detail panel */
+  .panel-enter { transform: translateY(100%); }
+  .panel-shown { transform: translateY(0); }
+  /* sticky left col in calendar */
+  .stickycol { position: sticky; left: 0; background: #FFFFFF; z-index: 2; }
+  .stickycol.head { background: #F0F4F8; z-index: 3; }
+  /* utility for subtle wave svg background */
+  .wave-bg {
+    background:
+      radial-gradient(1200px 300px at 80% -10%, rgba(46,125,107,0.10), transparent 60%),
+      radial-gradient(900px 240px at -10% 110%, rgba(27,58,92,0.10), transparent 60%),
+      #F0F4F8;
+  }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="data.js"></script>
+<script src="image-slot.js"></script>
+</head>
+<body class="bg-off text-navy min-h-screen">
+<div id="root"></div>
+
+<script type="text/babel" src="helpers.jsx"></script>
+<script type="text/babel" src="home.jsx"></script>
+<script type="text/babel" src="explore.jsx"></script>
+<script type="text/babel" src="calendar.jsx"></script>
+<script type="text/babel" src="flies.jsx"></script>
+<script type="text/babel" src="kokanee.jsx"></script>
+<script type="text/babel" src="interiorlakes.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

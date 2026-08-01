@@ -1,0 +1,566 @@
+WEST COAST FLY — COMPLETE WEBSITE PROTOTYPE PROMPT
+====================================================
+Copy everything below this line and paste it into a new Claude conversation.
+====================================================
+
+Build a fully interactive prototype of "West Coast Fly" (westcoastfly.com) — a BC fishing reference website. Build it as a single React component using Tailwind CSS utility classes. The prototype must work on both desktop and mobile. Use useState and useEffect hooks. No external libraries except recharts (already available) if needed for charts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BRAND & VISUAL IDENTITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name: West Coast Fly
+Tagline: "BC's most complete fishing guide — rivers, lakes, ocean & beaches"
+
+Colour palette (use as inline Tailwind or CSS variables):
+  Navy:      #1B3A5C  — primary headings, nav bar
+  Teal:      #2E7D6B  — PEAK indicator, CTAs, active filters
+  Salmon:    #C0604A  — section accents, ACTIVE indicator
+  Gold:      #B8860B  — LIGHT indicator, highlights
+  Off-white: #F8F7F4  — page background
+  White:     #FFFFFF  — card backgrounds
+
+Typography:
+  Font stack: system-ui, -apple-system, sans-serif
+  Site title: 24px bold, Navy
+  H1: 22px, weight 500, Navy
+  H2: 18px, weight 500, Teal
+  H3: 15px, weight 500, Navy
+  Body: 14px, weight 400, #444444
+  Caption: 12px, weight 400, #666666
+
+Visual style:
+  - Clean, flat — no gradients, no shadows on most elements
+  - Subtle 1px borders (#E5E5E0) on cards and filters
+  - Rounded corners: 8px standard, 12px for cards
+  - Use colour sparingly — white cards on off-white background
+  - Mobile nav: bottom tab bar (not a hamburger menu)
+  - Desktop nav: top horizontal bar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA — EMBED DIRECTLY IN COMPONENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use this JavaScript data object. The prototype should read from it dynamically — do NOT hardcode content into JSX.
+
+const DATA = {
+  fisheries: [
+    {
+      id: "cv-steelhead",
+      species: "Winter Steelhead",
+      system: "Chilliwack / Vedder (C/V)",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly", "gear"],
+      season: { peak: [1,2], active: [0,3,11], light: [], off: [4,5,6,7,8,9,10] },
+      gaugeWindow: "2.2–3.0m (Vedder Crossing)",
+      gaugeLink: "https://wateroffice.ec.gc.ca",
+      limit: "Hatchery: retention. Wild: C&R",
+      tagline: "December through April. Peak January–February. One of BC's most accessible steelhead rivers.",
+      flySetup: {
+        rod: "13–14ft Spey or 11–12ft Switch, 7–9wt",
+        line: "Skagit head + T-6 to T-14 sink tip",
+        leader: "3.5–5ft Maxima Ultragreen 10–15lb",
+        technique: "Swing & step: cast 45–90°, hard upstream mend, low rod tip follow, 5-sec dangle, step 2–4 steps down. Vary angle around boulders."
+      },
+      gearSetup: "Float fishing: white worms, beads (10–14mm peach/pink/orange). Scale down in low/clear water. Spinners effective as water warms above 4°C.",
+      flies: ["Pink/orange marabou swung fly", "Intruder-style tube fly", "Glo-Bug egg pattern", "Purple/claret for pressured fish"],
+      yoy: { "2022": "Good — higher water spread fish through steelhead runs", "2023": "Good — typical Jan–Feb peak", "2024": "Good — warm February advanced peak timing", "2025": "Good — consistent hatchery returns" },
+      waterConditions: [
+        { level: "< 1.8m", condition: "Low/clear", action: "Stealth required — 8mm beads, 8lb fluoro, fish choppy water" },
+        { level: "2.2–3.0m", condition: "PRIME", action: "All presentations working" },
+        { level: "> 4.0m", condition: "Blown out", action: "Wait 24–48 hrs" }
+      ],
+      nearestTown: "Chilliwack, BC",
+      lat: 49.1579, lng: -121.9514
+    },
+    {
+      id: "cv-fall-chinook",
+      species: "Fall Chinook",
+      system: "Chilliwack / Vedder (C/V)",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly", "gear"],
+      season: { peak: [8,9], active: [7,10], light: [], off: [0,1,2,3,4,5,6,11] },
+      gaugeWindow: "2.2–3.0m (Vedder Crossing)",
+      limit: "Check DFO — 1–2/day",
+      tagline: "September–October peak. Albion test fishery indicator: peak around Sept 16–22. 2024 was the best chinook run in over a decade.",
+      flySetup: {
+        rod: "12–14ft Spey or 9ft 8–10wt single-hand",
+        line: "Heavy Skagit + T-10 to T-14",
+        leader: "3–4ft MONO 20–30lb (NOT fluorocarbon for swinging)",
+        technique: "Same swing & step as steelhead but heavier gear. Chinook hold in deep fast slots — NOT slow pools. Cover water."
+      },
+      gearSetup: "Beads, blades, yarn, jigs, spinners, spoons. 2024–2025: smaller, subtle presentations noted as best. First/last light most productive.",
+      flies: ["Intruder-style 1/0–2/0", "Pink, orange, blue, black, chartreuse", "Tube fly with trailer hook"],
+      yoy: { "2022": "Good — high water created unusual but positive fish distribution", "2023": "Good — strong numbers", "2024": "EXCEPTIONAL — highest Albion counts in a decade", "2025": "Strong" },
+      nearestTown: "Chilliwack, BC",
+      lat: 49.1579, lng: -121.9514
+    },
+    {
+      id: "cv-coho",
+      species: "Coho Salmon",
+      system: "Chilliwack / Vedder (C/V)",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly", "gear"],
+      season: { peak: [9,10], active: [8], light: [], off: [0,1,2,3,4,5,6,7,11] },
+      limit: "1–2 hatchery coho/day — check DFO",
+      tagline: "Late September through November. Find willing pods and move if fish aren't cooperating.",
+      flySetup: {
+        rod: "8–9wt 13ft Spey or 10–11ft Switch",
+        line: "Skagit or WF intermediate + T-6 to T-8",
+        leader: "6–10ft fluorocarbon 10–12lb",
+        technique: "Classic wet-fly swing. Bright patterns for active fish (pink, orange, chartreuse). Olive/black/purple for stale fish. Change colour if refused."
+      },
+      gearSetup: "Large spoons and spinners in dirty water. Scale down in low/clear. Spinootchie-style jigs for picky stale fish.",
+      flies: ["California Neil", "Coho Bugger — pink/orange", "Coho Bugger — olive/black (stale fish)", "Mickey Finn"],
+      yoy: { "2022": "Good", "2023": "Good", "2024": "Excellent", "2025": "Excellent" },
+      nearestTown: "Chilliwack, BC",
+      lat: 49.1579, lng: -121.9514
+    },
+    {
+      id: "squamish-bull-trout",
+      species: "Bull Trout",
+      system: "Squamish River",
+      type: "river",
+      region: "Sea to Sky",
+      method: ["fly"],
+      season: { peak: [10,11,0], active: [1,2,9], light: [3,8], off: [4,5,6,7] },
+      limit: "Catch & Release",
+      tagline: "Peak November–March following salmon spawning. Previous year's salmon return determines egg availability.",
+      flySetup: {
+        rod: "5–6wt, 9–10ft single-hand (10ft preferred)",
+        line: "WF floating",
+        leader: "4–8lb fluorocarbon for egg patterns. 8–10lb for flesh flies.",
+        technique: "Indicator nymph: set precisely 1–2ft off bottom. Zero retrieve. Change egg colour frequently — bull trout become very colour-selective. Rest pools 10–30 min between casts. Fish choppy confluence water."
+      },
+      gearSetup: "Not applicable — fly fishing focus for this species.",
+      flies: ["Glo-Bug — peach fuzz", "Glo-Bug — dead egg (muted tan)", "Flesh fly — white/peach + orange hotspot", "Slumpbuster", "Vampire Leech (backup)"],
+      yoy: { "2022": "Excellent — strong salmon returns = abundant eggs", "2023": "Excellent", "2024": "Good", "2025": "Slightly below average — smaller swung flies noted as alternate" },
+      nearestTown: "Squamish, BC",
+      lat: 49.7016, lng: -123.1558
+    },
+    {
+      id: "cap-beach-coho",
+      species: "Coho Salmon — Beach",
+      system: "Capilano Beach / Ambleside",
+      type: "beach",
+      region: "North Shore",
+      method: ["fly", "gear"],
+      season: { peak: [7,8], active: [5,6,9], light: [], off: [0,1,2,3,4,10,11] },
+      limit: "2 hatchery coho/day — tidal licence required",
+      tagline: "Ambleside Beach, West Vancouver. 15 min from downtown. Low river = fish on beach. First light + low slack tide = best window.",
+      flySetup: {
+        rod: "7–9wt, 9–11ft (8wt most common; 9wt for wind)",
+        line: "Clear slow-sinking intermediate — RIO Outbound or Airflo Forty Plus (clear)",
+        leader: "10–15lb fluorocarbon — clear is mandatory. 'Can be the difference between catching and not.'",
+        technique: "Cast to sighted fish or pod activity. Erratic strip-pause. Change fly every few casts — 'there is no single best fly, the fish tell you on the day.' First light to 8–9am. Fish last 2 hrs before low slack + first 2 hrs of ebb."
+      },
+      gearSetup: "Gibbs Croc, Blue Fox spinners, Buzz Bombs. Medium-light 9–10ft spinning rod. Cast to schools; erratic retrieve.",
+      flies: ["Pink beach streamer", "Chartreuse/white streamer", "All-white streamer", "Sand lance/epoxy minnow", "Small crab larva pattern (slow retrieve)"],
+      yoy: { "2022": "Good", "2023": "Good — pink salmon also present (odd year)", "2024": "Solid", "2025": "Solid — excellent pink run (odd year)" },
+      nearestTown: "West Vancouver, BC",
+      lat: 49.3261, lng: -123.1427
+    },
+    {
+      id: "winter-chinook-ocean",
+      species: "Winter Chinook",
+      system: "Vancouver Harbour / Howe Sound",
+      type: "ocean",
+      region: "Metro Vancouver",
+      method: ["gear"],
+      season: { peak: [0,1,2,11], active: [10], light: [], off: [3,4,5,6,7,8,9] },
+      limit: "2 chinook/day; min 62cm; ends March 31",
+      tagline: "November through March 31. All four years 2022–2025 described as excellent — best sustained winter chinook fishing in living memory.",
+      flySetup: null,
+      gearSetup: "Downrigger trolling. Troll at speed maintaining 45° cable angle. Flashers: green/chartreuse with glow tape (STS, Salty Dawg, Lemon Lime, Chartreuse Phantom). Spoons: Skinny G and Kingfisher 3.0–3.5oz in Irish Cream, Trailhead, Outfitter, Yes Bananas.",
+      flies: [],
+      yoy: { "2022": "Best in living memory — best since records began", "2023": "Very good", "2024": "Excellent", "2025": "Excellent — continuing strong trend" },
+      nearestTown: "Vancouver, BC",
+      lat: 49.2827, lng: -123.1207
+    },
+    {
+      id: "summer-coho-ocean",
+      species: "Hatchery Coho",
+      system: "South Bowen / Howe Sound",
+      type: "ocean",
+      region: "Metro Vancouver",
+      method: ["gear"],
+      season: { peak: [5,6,7], active: [8,9], light: [], off: [0,1,2,3,4,10,11] },
+      limit: "2 hatchery coho/day over 30cm",
+      tagline: "June 1 opening. Fish top 25–35ft on tidelines. 2022–2025: possibly best back-to-back coho seasons since the 1980s.",
+      flySetup: null,
+      gearSetup: "Troll fast. Fish top 25–35ft. UV and reflective finishes — NOT glow tape at this depth. Gibbs Twisted Sista, Oki Betsy flashers. White UV hoochie with mylar insert (28\" leader). Silver/nickel spoons with 3–4ft leader.",
+      flies: [],
+      yoy: { "2022": "Excellent", "2023": "Excellent", "2024": "Exceptional", "2025": "Exceptional — spring juvenile sightings confirm strong 2026 return" },
+      nearestTown: "Vancouver, BC",
+      lat: 49.3681, lng: -123.3747
+    },
+    {
+      id: "interior-chironomid",
+      species: "Rainbow Trout — Chironomids",
+      system: "BC Interior Lakes",
+      type: "lake",
+      region: "Interior BC",
+      method: ["fly"],
+      season: { peak: [4,5,8,9], active: [3,10], light: [2], off: [0,1,6,7,11] },
+      limit: "Varies by lake — check Synopsis",
+      tagline: "BC's core stillwater fly fishery. Chironomids account for 2/3 of a lake trout's diet. Prime water temp: 54–60°F.",
+      flySetup: {
+        rod: "5wt, 9.5–10ft (10ft ideal for casting long indicator leaders)",
+        line: "WF floating: SA Amplitude Smooth Stillwater",
+        leader: "Long fluorocarbon; suspend fly 1–2ft off bottom; total leader 25–30% longer than depth",
+        technique: "Zero retrieve is the key. Cast, set indicator at precise depth (use electronics to confirm fish depth), wait. Twitch 1 inch every 15 sec. 'Naked' method (no indicator) on flat-calm days. Type 6 full sink for fish >30ft."
+      },
+      gearSetup: "Not typical — this is a dedicated fly fishing fishery.",
+      flies: ["Black & Red chironomid pupa", "Chromie / GMC (Gun Metal Chironomid)", "Bloodworm / C.K. Worm", "ASBB (Anti-Static Bag Bomber)", "Olive & Gold chironomid"],
+      yoy: { "2022": "Excellent — fall season especially strong", "2023": "Very good", "2024": "Excellent — fall 'probably better than spring'", "2025": "Excellent — gradual warming created extended season" },
+      nearestTown: "Kamloops, BC",
+      lat: 50.6745, lng: -120.3273
+    },
+    {
+      id: "kokanee",
+      species: "Kokanee Salmon",
+      system: "BC Interior Lakes",
+      type: "lake",
+      region: "Interior BC",
+      method: ["gear", "fly"],
+      season: { peak: [5,6,7], active: [4,8], light: [3,9], off: [0,1,2,10,11] },
+      limit: "5/day (provincial max); some lakes lower — check",
+      tagline: "Landlocked sockeye salmon. Fight like ocean fish. World-class fishery in Cariboo and Kootenay regions. Excellent table fare.",
+      flySetup: {
+        rod: "5wt, 9–10ft",
+        line: "WF floating with indicator",
+        leader: "4–6lb fluorocarbon; set indicator at varying depths — kokanee may feed as shallow as 3ft",
+        technique: "Spring only (April–May before thermocline). Same chironomid tactics as rainbow trout but kokanee may be feeding shallower than expected. Check for schools at multiple depths."
+      },
+      gearSetup: "Trolling primary: 1.2–1.4mph. 3–5 inch dodger + 90cm leader + wedding band spinner + pink maggot sweetener. Downrigger required from June onward as fish follow thermocline deeper. Key colours: pink, UV finishes. Ice fishing: small silver flasher + white ice jig + maggot at 10–20ft depth.",
+      flies: ["Black & Red chironomid (spring)", "Chromie (spring)", "Blob — chartreuse/pink (spring attractors)"],
+      yoy: { "2022": "Cariboo lakes excellent", "2023": "Strong — triploid fish reaching 2–4lb in Bridge/Deka", "2024": "Good", "2025": "Good" },
+      nearestTown: "100 Mile House / Kamloops, BC",
+      lat: 51.6434, lng: -121.2968
+    },
+    {
+      id: "cowichan-trout",
+      species: "Brown & Rainbow Trout",
+      system: "Cowichan River",
+      type: "river",
+      region: "Vancouver Island",
+      method: ["fly"],
+      season: { peak: [3,4,9,10], active: [2,11,0], light: [1], off: [5,6,7,8] },
+      limit: "Check BC Freshwater Synopsis — closes July–August",
+      tagline: "Finest trout stream on Vancouver Island. BC's only viable brown trout fishery. Spring streamer fishing for browns in March–April is world-class.",
+      flySetup: {
+        rod: "5–6wt single-hand, 9–10ft",
+        line: "WF floating for dry flies and nymphs; sinking line for streamers",
+        leader: "9ft tapered 4X + 5X tippet for dries; heavier for streamers",
+        technique: "Spring: large streamers (rabbit strip, Slumpbuster) for browns feeding on salmon fry — most exciting fishery. March–May: Western March Brown and caddis hatches; dry fly season. Fall: egg patterns behind spawning salmon. Guided drift boat highly recommended for first visits."
+      },
+      gearSetup: "Fly fishing is the primary method — the upper section is fly-only.",
+      flies: ["Rabbit Strip Leech (spring streamers)", "Western March Brown Emerger", "Elk Hair Caddis", "Adams / Parachute Adams", "Glo-Bug egg patterns (fall)"],
+      yoy: { "2022": "Good", "2023": "Good", "2024": "Good", "2025": "Good" },
+      nearestTown: "Duncan, BC",
+      lat: 48.7784, lng: -123.7079
+    },
+    {
+      id: "skagit-trout",
+      species: "Rainbow & Bull Trout",
+      system: "Skagit River",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly"],
+      season: { peak: [7,8], active: [6,9], light: [], off: [0,1,2,3,4,5,10,11] },
+      limit: "Check BC Freshwater Synopsis",
+      tagline: "2–2.5 hour drive from Vancouver through Manning Park. Crystal-clear water. Dry fly season starts mid-July when water drops.",
+      flySetup: {
+        rod: "4–5wt, 9ft single-hand",
+        line: "WF floating",
+        leader: "9ft tapered 4X + 5X tippet",
+        technique: "Early season (July): nymph — water too high for dries. Start with Girdle Bug, Prince Nymph, Golden Stonefly. Transition to dry flies mid-July as water drops. Grey mayfly imitations and Klinkhammers afternoon. Bull trout: sinking line with rabbit strip leeches in deep pools."
+      },
+      gearSetup: "Fly fishing is primary method on this river.",
+      flies: ["Girdle Bug", "Prince Nymph", "Klinkhammer", "Adams", "Golden Stonefly Nymph", "Rabbit Strip Leech (bull trout)"],
+      yoy: { "2022": "Good — low pressure, clear water", "2023": "Good", "2024": "Good — water drop to prime levels around July 20", "2025": "Good" },
+      nearestTown: "Manning Park / Hope, BC",
+      lat: 49.0608, lng: -120.7673
+    },
+    {
+      id: "fraser-sturgeon",
+      species: "White Sturgeon",
+      system: "Fraser River",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["gear"],
+      season: { peak: [7,8,9], active: [2,3,4,5,6,10], light: [0,1,11], off: [] },
+      limit: "CATCH & RELEASE ONLY — zero retention ever",
+      tagline: "Year-round C&R fishery. September described as phenomenal in 2024 and 2025. Double-digit days common August–September with salmon bait.",
+      flySetup: null,
+      gearSetup: "Bottom rig with bait. Wear gloves — scent hygiene critical. Pink salmon parts (August gold standard). Salmon roe year-round. Lamprey and pikeminnow in spring. Fish slack tides. Jet boat charters provide best access.",
+      flies: [],
+      yoy: { "2022": "Strong", "2023": "Excellent", "2024": "Exceptional — September 'some of the best all year'", "2025": "Phenomenal — one of the best seasons in recent memory" },
+      nearestTown: "Fort Langley, BC",
+      lat: 49.1697, lng: -122.5786
+    }
+  ],
+  months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  flyPatterns: [
+    { name: "Intruder / Marabou Swung Fly", category: "steelhead-salmon", environment: ["river"], hookSize: "#1 to 2/0", colours: "Pink, orange, purple, black, chartreuse, claret", technique: "Wet-fly swing on Skagit head with T-8 to T-14 sink tip. Swing & step method." },
+    { name: "Glo-Bug / Egg Pattern", category: "eggs", environment: ["river","lake"], hookSize: "#8–#10", colours: "Peach, pink, orange, red; 'dead egg' muted colours for selective fish", technique: "Under indicator dead drift. Minimal movement. Scale down in low/clear water." },
+    { name: "Chironomid Pupa (standard)", category: "chironomid", environment: ["lake"], hookSize: "#12–#18", colours: "Black/red, olive/red, maroon; silver or gold wire rib; glass bead head", technique: "Zero retrieve under indicator. 1-inch twitch every 15 sec. Set at precise depth." },
+    { name: "Chromie / GMC", category: "chironomid", environment: ["lake"], hookSize: "#12–#16", colours: "Silver/mylar, gunmetal, holographic", technique: "Indicator mid-column when pupae ascending. Most productive during active rise." },
+    { name: "Bloodworm / C.K. Worm", category: "chironomid", environment: ["lake"], hookSize: "#12–#16", colours: "Red, maroon, translucent red", technique: "1–2ft off bottom under indicator. Or naked on Type 6 full sink for >30ft depth." },
+    { name: "ASBB (Anti-Static Bag Bomber)", category: "chironomid", environment: ["lake"], hookSize: "#12–#14", colours: "Various — ASB material wrapped over thread body", technique: "Indicator mid-column. Represents gas-bubble in ascending pupa." },
+    { name: "Blob", category: "attractor", environment: ["lake"], hookSize: "#10–#14", colours: "Chartreuse, orange, pink, white, purple", technique: "Under indicator or slow strip. Early ice-off staple. 'Incredibly effective as backup.'" },
+    { name: "Booby", category: "attractor", environment: ["lake"], hookSize: "#8–#12", colours: "White, black, olive, orange; foam eyes", technique: "Short leader on full sinking line. Slow strip. Fish silhouette against sky." },
+    { name: "Vampire Leech", category: "leech", environment: ["river","lake"], hookSize: "#6–#10", colours: "Black body with red/maroon hackle", technique: "Wind-drift under indicator or slow strip. 'Save the day' pattern." },
+    { name: "Damsel Nymph", category: "damsel", environment: ["lake"], hookSize: "#10–#14", colours: "Olive, tan, brown; marabou tail", technique: "Long slow strip to imitate swimming motion. Cast toward emergent vegetation. Migrate to shore before hatching." },
+    { name: "Elk Hair Caddis", category: "dry-fly", environment: ["river","lake"], hookSize: "#10–#16", colours: "Tan, olive, grey", technique: "Dead-drift or subtle skating. June–August. Osprey Fly Fishers pattern." },
+    { name: "Adams / Parachute Adams", category: "dry-fly", environment: ["river","lake"], hookSize: "#12–#18", colours: "Grey/brown body, white parachute post", technique: "Classic all-purpose dry fly. Fish riffles and feeding lanes. Dead-drift to rising fish." },
+    { name: "Tom Thumb", category: "dry-fly", environment: ["river","lake"], hookSize: "#10–#14", colours: "Deer hair body and wing — natural brown", technique: "Classic BC dry fly for evening sedge hatches. Dead-drift or very gentle skate." },
+    { name: "Beach Coho Streamer", category: "beach", environment: ["beach"], hookSize: "#2–#6 saltwater", colours: "Pink, cerise, chartreuse/white, all-white", technique: "Clear intermediate line. Erratic strip-pause. Change colour every few casts." },
+    { name: "Scud / UV Pregnant Shrimp", category: "scud", environment: ["lake"], hookSize: "#12–#16", colours: "Olive, grey, pink, tan; curved scud hook", technique: "Slow hand-twist retrieve near weed beds. Year-round lake staple. 'Bacon of the lake.'" },
+    { name: "Dragonfly Nymph", category: "dragonfly", environment: ["lake"], hookSize: "#8–#10", colours: "Olive, brown, dark tan", technique: "Strip along bottom in short pulls late evening. Fish migrate to shore before hatching." }
+  ],
+  kokanee: [
+    { lake: "Wood Lake", region: "Okanagan", limit: "5/day", size: "Good numbers, moderate size", notes: "Very fertile. Record spawner returns recently. Wedding band + maggot standard." },
+    { lake: "Kalamalka Lake", region: "Okanagan", limit: "2/day", size: "Trophy", notes: "Selective fish. Small dodgers excel. Trophy destination." },
+    { lake: "Bridge Lake", region: "Cariboo", limit: "5/day", size: "2–4lb (triploid)", notes: "Heart of Cariboo kokanee. Fat, deep-shouldered fish. Fish don't stratify tightly." },
+    { lake: "Deka Lake", region: "Cariboo", limit: "5/day", size: "Moderate–large", notes: "Paired with Bridge Lake. Naturally reproductive broodstock. Garden worms May–June." },
+    { lake: "Ten Mile Lake", region: "Cariboo", limit: "5/day", size: "Moderate", notes: "25,000 stocked annually. Best June–August. Pink UV hoochie consistent producer." },
+    { lake: "Monte Lake", region: "Kamloops", limit: "5/day", size: "Moderate", notes: "Kamloops classic. Ice fishing popular (fish over 80ft, lures at 15ft)." },
+    { lake: "Kootenay Lake (West Arm)", region: "Kootenay", limit: "5/day (restricted days)", size: "World-class", notes: "Open specific days only. Mysis shrimp conveyor. Unofficial world record lake (80cm, 2015)." },
+    { lake: "Arrow Lakes", region: "Kootenay", limit: "5/day (Columbia: 15/day)", size: "Large", notes: "232km lake system. Columbia River limit is 15/day." }
+  ]
+};
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SITE STRUCTURE — 5 VIEWS (tabs/pages)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Build a single-page app with 5 views, navigated by a bottom tab bar on mobile and top nav on desktop. Use useState to track active view. No routing needed — pure state switching.
+
+View 1: HOME
+View 2: EXPLORE (filterable results — the core view)
+View 3: CALENDAR (seasonal chart)
+View 4: FLY PATTERNS (searchable library)
+View 5: KOKANEE (dedicated section)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIEW 1: HOME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Layout:
+- Hero section: site name "West Coast Fly" in Navy 28px bold, tagline below in Teal 16px, background colour #F0F4F8 (soft blue-grey)
+- "What's fishing now?" — show current month name and a horizontal scrollable row of fishery cards that are PEAK or ACTIVE this month (month 0 = January; default to September which is peak season). Each card shows species name, system name, and a coloured PEAK/ACTIVE badge.
+- Three entry point buttons in a 3-column grid: "By Time" (calendar icon), "By Fishery" (filter icon), "By Species" (fish icon) — each navigates to the Explore view
+- "Feature sections" — 4 icon tiles in 2x2 grid: Rivers, Ocean & Beach, Interior Lakes, Fly Patterns
+- Footer: "westcoastfly.com — BC fishing reference guide. Always verify regulations with DFO before fishing."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIEW 2: EXPLORE (most important view)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This is the filterable fishing explorer. Build it with useState for all filter state.
+
+Filter controls (sticky at top on scroll):
+  Row 1: Month selector — 12 pill buttons (Jan through Dec), single select, default = current month (Sep). Show coloured activity bar below: each month pill background shows peak/active/light/off tally for that month.
+  Row 2: Type filter — "All" | "River" | "Ocean" | "Beach" | "Lake" — pill toggle, single select
+  Row 3: Method filter — "All" | "Fly fishing" | "Gear fishing" — pill toggle, single select
+  (On mobile, Row 2 and 3 combine into a single horizontally scrollable strip)
+
+Active filter summary: show as small coloured pills above results ("September × River × Fly fishing ×")
+
+Results count: "X fisheries match"
+
+Result cards — each card shows:
+  - Species name (16px, weight 500, Navy)
+  - System/location (13px, Teal)
+  - Activity badge: "PEAK" (Salmon bg), "ACTIVE" (Teal bg), "LIGHT" (Gold bg) — based on selected month
+  - Method tags: small grey pills "Fly" "Gear"
+  - Tagline (2 lines max, 13px, muted grey)
+  - Arrow indicator → (indicates card is clickable)
+  - A mini 12-month activity bar: 12 tiny coloured segments showing peak/active/light/off for each month
+
+Clicking a card opens a Detail Panel (full-screen overlay on mobile, right panel slide-in on desktop):
+  Detail panel sections:
+  1. Header: species name, location, activity badge for current selected month
+  2. Season bar: 12-segment horizontal bar coloured peak/active/light/off. Current month marker.
+  3. Quick facts row: Gauge Window | Daily Limit | Nearest Town — 3 equal boxes
+  4. Tab strip: "Fly setup" | "Gear setup" | "Year notes" — only show tabs with content
+  5. Tab: Fly setup table — Rod | Line | Leader | Technique (each as a 2-column row)
+  6. Tab: Gear setup — paragraph text
+  7. Tab: Year notes — table with 2022/2023/2024/2025 rows
+  8. "Also active in [month] nearby" — horizontal scroll of related fishery cards
+  9. Regulations warning box: "⚠️ Always verify current DFO regulations before fishing. This guide is for reference only."
+  Close button top-right (X)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIEW 3: CALENDAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Title: "Seasonal Fishing Calendar"
+Subtitle: "When to fish what, across all BC systems"
+
+Display: a full seasonal matrix table
+  - Rows: all fisheries from DATA.fisheries (grouped by type: River, Ocean, Beach, Lake)
+  - Columns: Jan through Dec (abbreviated)
+  - Cells: coloured block — #C0604A for peak, #2E7D6B for active, #B8860B for light, #EEEEEE for off
+  - Row labels: "Species — System" (e.g. "Winter Steelhead — C/V River")
+  - Section dividers between river/ocean/beach/lake groups (bold row with section label)
+  - Colour legend below table
+
+On mobile: table scrolls horizontally. Row labels fixed/sticky on left side. Month columns are narrow (min-width 28px).
+
+Below table: a "Month at a glance" section — click any month name to see a filtered list of what's PEAK and ACTIVE in that month.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIEW 4: FLY PATTERNS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Title: "Fly Pattern Library"
+
+Search bar at top: live filter by pattern name as user types
+
+Category filter pills (single select): "All" | "River patterns" | "Lake patterns" | "Beach patterns" | "Dry flies" | "Attractors"
+
+Map categories from data:
+  "chironomid", "attractor" → "Lake patterns"
+  "leech", "scud", "damsel", "dragonfly" → "Lake patterns"
+  "dry-fly" → "Dry flies"
+  "beach" → "Beach patterns"
+  "steelhead-salmon", "eggs" → "River patterns"
+  Note: some patterns appear in both river and lake (leech, eggs) — show in both when "All" is selected
+
+Pattern cards in a 2-column grid (single column on small mobile):
+  Each card:
+  - Pattern name (14px, weight 500)
+  - Environment tags: "River" "Lake" "Beach" as small coloured pills
+  - Hook size (small, muted)
+  - Colours section heading + text
+  - Technique section heading + text
+  - Expandable on click: show full detail in an expand-in-place animation (toggle height)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIEW 5: KOKANEE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A dedicated section about kokanee fishing in BC.
+
+Header: "Kokanee Salmon" + "BC's landlocked sockeye — fighting spirit, world-class lakes, exceptional table fare"
+
+Quick facts band (horizontal scroll on mobile, 4 columns desktop):
+  - 110+ kokanee lakes in BC
+  - Typical size: 10–14 inches (up to 4lb+ in Cariboo trophy lakes)
+  - Best season: May–August (open water); Year-round (ice fishing)
+  - Table quality: Excellent — deep red flesh like ocean sockeye
+
+Thermocline explainer section:
+  A visual diagram (CSS boxes, not an image) showing:
+  - Surface layer (warm) — labelled "Too warm for kokanee June–Aug"
+  - Thermocline line — labelled "FIND THIS LAYER"
+  - Cold oxygenated layer — labelled "Kokanee zone"
+  Make this with CSS divs and gradient colours (light blue → darker blue)
+  Text: "Kokanee are extremely temperature-sensitive. In summer, find the thermocline with electronics — fish will be in a tight band at this boundary. In Cariboo lakes (cooler water), fish distribute throughout the column."
+
+Method tabs: "Open water trolling" | "Spring fly fishing" | "Ice fishing"
+  Show tactic details for each method from DATA — concise bullet lists
+
+Lakes table: display DATA.kokanee as a clean table
+  Columns: Lake | Region | Daily Limit | Size Notes | Tactics
+  Highlight Kootenay Lake West Arm row with a warning icon (restricted days)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MOBILE (bottom tab bar, fixed):
+  5 tabs: Home | Explore | Calendar | Flies | Kokanee
+  Use simple Unicode or text icons: 🏠 🔍 📅 🪁 🐟 (or describe as minimal SVG icons)
+  Active tab: Teal underline + Teal text. Inactive: grey text.
+  Tab bar background: White, 1px top border.
+
+DESKTOP (top nav bar):
+  Left: "West Coast Fly" logo text in Navy 20px bold
+  Right: nav links "Home | Explore | Calendar | Fly Patterns | Kokanee"
+  Active link: Teal underline
+  Height: 56px, background White, 1px bottom border
+
+Responsive breakpoint: treat anything 768px+ as desktop. Use a state variable `isMobile` set with a resize listener or initial check of window.innerWidth.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MOBILE-SPECIFIC REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- All text minimum 14px
+- All tap targets minimum 44px height
+- Cards full-width on mobile (100%), 2-column grid on desktop
+- Month selector: horizontal scroll strip on mobile, wrap grid on desktop
+- Filter pills: horizontal scroll (no wrap) on mobile
+- The detail panel: full-screen slide-up from bottom on mobile (like a bottom sheet), fixed right panel (380px) on desktop
+- Bottom tab bar should not overlap content — add 72px padding-bottom to page content
+- The calendar table: sticky left column (species names), horizontal scroll for months
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INTERACTIONS & STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Active view: useState('home')
+- Selected month for Explore: useState(8) — index 8 = September
+- Type filter: useState('all')
+- Method filter: useState('all')
+- Open detail card: useState(null) — set to fishery.id when card clicked
+- Fly pattern search: useState('')
+- Fly pattern category filter: useState('all')
+- Kokanee tab: useState('trolling')
+- Expanded fly pattern (for in-place expand): useState(null)
+- isMobile: useState based on window.innerWidth < 768, with resize listener
+
+Filtering logic for Explore view:
+  const filtered = DATA.fisheries.filter(f => {
+    const monthActivity = f.season.peak.includes(selectedMonth) ? 'peak'
+      : f.season.active.includes(selectedMonth) ? 'active'
+      : f.season.light.includes(selectedMonth) ? 'light' : 'off';
+    if (monthActivity === 'off') return false; // hide off-season fisheries
+    if (typeFilter !== 'all' && f.type !== typeFilter) return false;
+    if (methodFilter !== 'all' && !f.method.includes(methodFilter === 'fly fishing' ? 'fly' : 'gear')) return false;
+    return true;
+  });
+  Sort: peak first, then active, then light.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SMALL DETAILS THAT MAKE IT FEEL REAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Activity badges should always use exact colours: peak=#C0604A bg with white text, active=#2E7D6B bg with white text, light=#B8860B bg with white text
+- The 12-month mini bars on result cards: 12 inline divs each 1/12 width, height 6px, coloured appropriately, no gap between them, rounded as a group (overflow-hidden on parent)
+- Regulations warning: always visible in card detail. Light amber background (#FFF8E1), amber left border, warning icon. This is important — never omit it.
+- "What's fishing now" on home: auto-calculate which fisheries are peak/active for current month
+- Empty state: if no results match filters, show "No fisheries match these filters. Try adjusting your month or removing a filter." with a subtle illustration (CSS only — a simple fishing rod shape or just text)
+- Loading feel: since all data is inline, everything renders instantly — no loading states needed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TECHNICAL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Single React component with a default export
+- Use Tailwind CSS utility classes for all styling
+- useState and useEffect from React (already imported)
+- No external API calls — all data inline
+- No react-router — pure state-based view switching
+- Window resize listener in useEffect with cleanup
+- The data object (DATA) should be defined outside the component function at the top of the file
+- Avoid inline styles except where Tailwind doesn't cover it (e.g. exact hex colours for the activity indicators)
+- Use template literals for dynamic class names, not ternary-heavy className strings where possible
+- Keep the component under 600 lines if possible by using small helper functions/sub-components defined inside the main component scope
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT SUCCESS LOOKS LIKE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A user on their phone picks up this app Friday morning planning a weekend fishing trip. In two taps they can:
+1. See what's worth targeting this weekend (Explore → September → River → Fly fishing)
+2. Tap a result card and immediately see the exact rod, line, leader, and fly pattern they need
+3. Know the gauge window to check before leaving the house
+
+That's the experience this prototype should deliver. Clean, fast, information-dense but not overwhelming, immediately useful.
