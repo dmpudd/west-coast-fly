@@ -143,6 +143,13 @@ function InteriorLakesView({ isMobile }) {
                   return <span key={id} className="inline-flex items-center gap-1 text-[11px] text-ink2 bg-[#EFEEE8] rounded-full px-2 py-1"><EntomologyIcon id={id} size={12} color="#666" />{e?.name.split(' ')[0]}</span>;
                 })}
               </div>
+              {l.access && (
+                <div className="mt-3 pt-3 border-t border-line grid grid-cols-1 gap-2">
+                  <div className="flex gap-2"><Icon name="boat" size={13} color="#666" /><div className="text-[12px] text-ink leading-snug"><span className="text-ink2 uppercase tracking-wider text-[10px] font-semibold mr-1">Launch</span>{l.access.launch}</div></div>
+                  <div className="flex gap-2"><Icon name="pin" size={13} color="#666" /><div className="text-[12px] text-ink leading-snug"><span className="text-ink2 uppercase tracking-wider text-[10px] font-semibold mr-1">Dock</span>{l.access.dock}</div></div>
+                  <div className="flex gap-2"><Icon name="gauge" size={13} color="#666" /><div className="text-[12px] text-ink leading-snug"><span className="text-ink2 uppercase tracking-wider text-[10px] font-semibold mr-1">Shore</span>{l.access.shore}</div></div>
+                </div>
+              )}
             </Card>
           ))}
         </div>

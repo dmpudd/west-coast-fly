@@ -344,7 +344,7 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
                   <Icon name="gauge" size={12} color="#666" /> Water/flow
                 </div>
                 <div className="text-[12.5px] text-navy mt-1 leading-snug">
-                  {f.type === 'river' ? <LiveGauge f={f} /> : (f.gaugeWindow || '—')}
+                  {f.type === 'river' ? (typeof LiveGauge !== 'undefined' ? <LiveGauge f={f} /> : (f.gaugeWindow || '—')) : (f.gaugeWindow || '—')}
                 </div>
               </div>
               <QuickFact icon="rules" label="Daily limit"    value={f.limit} />

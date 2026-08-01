@@ -114,6 +114,7 @@ function KokaneeView({ isMobile }) {
                   <th className="text-left px-4 py-3">Region</th>
                   <th className="text-left px-4 py-3 whitespace-nowrap">Daily limit</th>
                   <th className="text-left px-4 py-3">Size</th>
+                  <th className="text-left px-4 py-3 hidden lg:table-cell">Access</th>
                   <th className="text-left px-4 py-3 hidden md:table-cell">Tactics & notes</th>
                 </tr>
               </thead>
@@ -131,6 +132,9 @@ function KokaneeView({ isMobile }) {
                       <td className="px-4 py-3 align-top text-ink2">{l.region}</td>
                       <td className="px-4 py-3 align-top text-ink whitespace-nowrap">{l.limit}</td>
                       <td className="px-4 py-3 align-top text-ink">{l.size}</td>
+                      <td className="px-4 py-3 align-top text-ink2 hidden lg:table-cell text-[12px] leading-snug">
+                        {l.access ? (<><div><span className="font-medium text-navy">Launch:</span> {l.access.launch}</div><div className="mt-1"><span className="font-medium text-navy">Dock:</span> {l.access.dock}</div><div className="mt-1"><span className="font-medium text-navy">Shore:</span> {l.access.shore}</div></>) : '—'}
+                      </td>
                       <td className="px-4 py-3 align-top text-ink hidden md:table-cell">{l.notes}</td>
                     </tr>
                   );

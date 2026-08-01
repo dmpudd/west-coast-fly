@@ -128,6 +128,26 @@ function EntomologyIcon({ id, size = 22, color = '#1B3A5C' }) {
   }
 }
 
+// ── Error boundary so one broken component can't blank the whole app ──
+class ErrorBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { error: null }; }
+  static getDerivedStateFromError(error) { return { error }; }
+  componentDidCatch(error, info) { console.error('WCF render error:', error, info); }
+  render() {
+    if (this.state.error) {
+      return (
+        <div style={{ padding: 24, maxWidth: 560, margin: '40px auto', fontFamily: 'system-ui, sans-serif' }}>
+          <div style={{ fontSize: 16, fontWeight: 600, color: '#1B3A5C', marginBottom: 8 }}>Something went wrong loading this page.</div>
+          <div style={{ fontSize: 13, color: '#666', marginBottom: 16, lineHeight: 1.5 }}>{String(this.state.error && this.state.error.message || this.state.error)}</div>
+          <button onClick={() => this.setState({ error: null })} style={{ fontSize: 13, color: '#2E7D6B', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer' }}>Try again</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+window.ErrorBoundary = ErrorBoundary;
+
 // ── Inline icons used by nav and entry buttons ──────────────────────
 function Icon({ name, size = 20, color = 'currentColor', stroke = 1.7 }) {
   const s = { width: size, height: size };
