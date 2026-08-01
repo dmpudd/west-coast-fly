@@ -304,7 +304,13 @@ window.DATA = {
       flies: ["Pink beach streamer", "Chartreuse/white streamer", "Small pink Clouser"],
       yoy: { "2022": "N/A — even year, no pink return", "2023": "Good", "2024": "N/A — even year, no pink return", "2025": "Mixed — pinks favoured the west side of Howe Sound, out of casting range for much of the run" },
       nearestTown: "Furry Creek, BC",
-      lat: 49.6167, lng: -123.2333
+      lat: 49.6167, lng: -123.2333,
+      access: {
+        parking: "Furry Creek golf course / marina area off Hwy 99 has informal pull-outs; Porteau Cove Provincial Park just south has a proper day-use lot and easy beach access if Furry Creek itself is busy.",
+        approach: "Walk down to the beach/rocky shoreline directly from roadside parking — no trail needed.",
+        popularSpots: "The shoreline between Porteau Cove and Britannia Beach sees schools moving through; fish the lowest tides for the most exposed casting room.",
+        waterType: "Rocky/gravel Howe Sound shoreline — clear salt water, sight-fishing to surface-milling pods."
+      }
     },
     {
       id: "cap-beach-coho",
@@ -326,7 +332,13 @@ window.DATA = {
       flies: ["Pink beach streamer", "Chartreuse/white streamer", "All-white streamer", "Sand lance/epoxy minnow", "Small crab larva pattern (slow retrieve)"],
       yoy: { "2022": "Good", "2023": "Good — pink salmon also present (odd year)", "2024": "Solid", "2025": "Solid — excellent pink run (odd year)" },
       nearestTown: "West Vancouver, BC",
-      lat: 49.3261, lng: -123.1427
+      lat: 49.3261, lng: -123.1427,
+      access: {
+        parking: "Ambleside Beach Park off Marine Drive has a large public lot; street parking also available along the seawall.",
+        approach: "Walk straight onto the beach from the park — fully urban access, no hike required.",
+        popularSpots: "The stretch of beach near the Capilano River mouth is the classic spot — fish stage here before running up the Capilano.",
+        waterType: "Open sand/gravel beach, exposed to boat traffic and wind — check tide tables for the low-slack window."
+      }
     },
     {
       id: "winter-chinook-ocean",
@@ -575,7 +587,8 @@ window.DATA = {
       region: "Skeena / North Coast",
       method: ["fly", "gear"],
       season: { peak: [8,9], active: [7,10], light: [6], off: [0,1,2,3,4,5,11] },
-      gaugeWindow: "Watch for green tint and visibility >3ft near Terrace/Usk",
+      gaugeStation: "08EF001",
+      gaugeWindow: "WSC gauge at Usk — the Skeena is glacial and keeps a green tint even when 'clear'; watch for visibility over 3ft near Terrace/Usk",
       limit: "Wild: C&R only. Check DFO/steelhead licence requirements",
       tagline: "The mainstem artery for the entire Skeena steelhead system. August through October, with fish pushing upstream toward Bulkley, Kispiox, Morice and Babine tributaries.",
       flySetup: {
@@ -588,7 +601,13 @@ window.DATA = {
       flies: ["Intruder-style tube fly", "General Practitioner", "Skeena Bat Fly (waking)", "Purple/black leech"],
       yoy: { "2022": "Good — average timing", "2023": "Good", "2024": "Strong — favourable early-season water levels", "2025": "Good" },
       nearestTown: "Terrace, BC",
-      lat: 54.5163, lng: -128.5665
+      lat: 54.5163, lng: -128.5665,
+      access: {
+        parking: "Highway 16 parallels the river closely from Terrace to Hazelton with numerous forestry-road and rest-stop pull-outs down to the water.",
+        approach: "Big water — most anglers wade from gravel bars near road access or fish from a jet boat/drift boat for the classic runs.",
+        popularSpots: "The Usk area and stretches near the Kalum, Zymoetz (Copper) and Kitsumkalum confluences hold fish moving upstream toward the tributaries.",
+        waterType: "Large glacial mainstem, green-tinted even in good conditions — covering water methodically matters more than sight-fishing."
+      }
     },
     {
       id: "bulkley-steelhead",
@@ -598,7 +617,8 @@ window.DATA = {
       region: "Skeena / North Coast",
       method: ["fly"],
       season: { peak: [8,9], active: [7,10], light: [], off: [0,1,2,3,4,5,6,11] },
-      gaugeWindow: "Low, clear, warm water by September — classic dry-fly conditions",
+      gaugeStation: "08EE005",
+      gaugeWindow: "WSC gauge near Smithers — one of the fastest-clearing rivers in the region; can blow out and be fishable again within a day or two",
       limit: "Wild: C&R only. Fly-fishing only on much of the river — check regs",
       tagline: "One of the world's premier dry-fly and waking-fly steelhead rivers. September's warm, low water sets up surface takes that draw anglers from around the globe.",
       flySetup: {
@@ -611,7 +631,13 @@ window.DATA = {
       flies: ["Steelhead Bee (waking)", "Grease Liner", "Riffle-hitched Muddler", "General Practitioner (subsurface)"],
       yoy: { "2022": "Good dry-fly window", "2023": "Good", "2024": "Excellent — extended low water through September", "2025": "Good" },
       nearestTown: "Smithers, BC",
-      lat: 54.7824, lng: -127.1687
+      lat: 54.7824, lng: -127.1687,
+      access: {
+        parking: "Highway 16 runs alongside much of the river through Houston, Quick, Telkwa and Smithers. Quick Bridge is a well-known public access point; Telkwa's Eddy Park (west side of town) and Main Street give town-adjacent access; the Bulkley River Recreation Site sits between Houston and Telkwa with a rustic campground right on the river.",
+        approach: "Mostly road-and-wade — pull off at a bridge or recreation site and walk the bank. Moricetown Canyon further downstream (a Wet'suwet'en fishing site) is worth a stop to view traditional dip-net fishing, though it's not typical rod-and-reel water.",
+        popularSpots: "Quick Bridge, Trout Creek, and the water around Telkwa and Smithers are the most talked-about beats; the upper canyon stretches between Houston and Telkwa are more work to reach but less crowded.",
+        waterType: "Big, clear freestone water once it drops in late summer — wide tailouts and glides suited to waking dries."
+      }
     },
     {
       id: "kispiox-steelhead",
@@ -634,7 +660,13 @@ window.DATA = {
       flies: ["Intruder — black/purple", "Egg-sucking leech", "General Practitioner"],
       yoy: { "2022": "Good — solid trophy-class fish", "2023": "Good", "2024": "Good", "2025": "Good — cold snap concentrated fish in known holding water" },
       nearestTown: "Hazelton, BC",
-      lat: 55.3272, lng: -127.6685
+      lat: 55.3272, lng: -127.6685,
+      access: {
+        parking: "Kispiox Valley Road runs north from Hazelton alongside the river to Kispiox village and beyond — numerous informal pull-outs give bank access along the way.",
+        approach: "Mostly road-and-wade from valley-road pull-outs; upper river access is via rougher forestry roads.",
+        popularSpots: "The stretch near Kispiox village, at the historic totem pole site, is well known and easily reached.",
+        waterType: "A small, intimate river by Skeena-system standards — easy to read compared to the big mainstem waters."
+      }
     },
     {
       id: "morice-steelhead",
@@ -703,7 +735,13 @@ window.DATA = {
       flies: ["Intruder-style tube fly", "General Practitioner", "Egg-sucking leech", "Pink/orange marabou (salmon)"],
       yoy: { "2022": "Good", "2023": "Good", "2024": "Good — reliable accessible option", "2025": "Good" },
       nearestTown: "Terrace, BC",
-      lat: 54.6260, lng: -128.7000
+      lat: 54.6260, lng: -128.7000,
+      access: {
+        parking: "Kalum Lake Drive runs north from Terrace alongside the river, with frequent pull-outs and forestry-road side access.",
+        approach: "The most road-accessible major Skeena tributary — easy road-and-wade fishing without the long drives or boat access many Skeena tributaries require.",
+        popularSpots: "Lower river access points near Terrace are easiest; upper stretches further up Kalum Lake Drive see less pressure.",
+        waterType: "Glacially-influenced, can turn turbid with summer melt — clears through fall and again in early spring."
+      }
     },
     {
       id: "elk-cutthroat",
@@ -713,7 +751,8 @@ window.DATA = {
       region: "Kootenay",
       method: ["fly"],
       season: { peak: [6,7,8], active: [5,9], light: [4], off: [0,1,2,3,10,11] },
-      gaugeWindow: "Clears by June; best dry-fly water July–September",
+      gaugeStation: "08NK002",
+      gaugeWindow: "WSC gauge at Fernie — clears by June, running gin-clear through the summer dry-fly window",
       limit: "Catch & Release — check Freshwater Synopsis for exceptions",
       tagline: "One of the world's premier dry-fly cutthroat rivers. Gin-clear water, willing fish, and a summer-long parade of stonefly, caddis and hopper action near Fernie.",
       flySetup: {
@@ -726,7 +765,13 @@ window.DATA = {
       flies: ["Stimulator", "Chubby Chernobyl / hopper", "Elk Hair Caddis", "Purple Haze"],
       yoy: { "2022": "Excellent", "2023": "Excellent", "2024": "Good — slightly lower flows", "2025": "Excellent" },
       nearestTown: "Fernie, BC",
-      lat: 49.5044, lng: -115.0631
+      lat: 49.5044, lng: -115.0631,
+      access: {
+        parking: "Highway 3 and Highway 43 parallel much of the river from Sparwood down through Fernie to its mouth at Lake Koocanusa — numerous pull-outs and bridge crossings.",
+        approach: "Easy road-and-wade access along most of its length; float fishing (raft/drift boat) is popular for covering more water on the middle/lower river.",
+        popularSpots: "The stretches around Fernie itself are heavily fished but productive; upstream toward Sparwood and Elkford sees less pressure.",
+        waterType: "Clean, gin-clear freestone river over cobble — excellent sight-fishing visibility all summer."
+      }
     },
     {
       id: "wigwam-cutthroat",
@@ -836,7 +881,13 @@ window.DATA = {
       gearSetup: "Small pink/silver spoons and jigs on a medium spinning rod, cast to visible pods. Most anglers fish the north side of the Nile Creek mouth.",
       flies: ["Pink beach streamer", "Small pink Clouser", "Sand lance/epoxy minnow"],
       nearestTown: "Qualicum Beach, BC",
-      lat: 49.3453, lng: -124.6389
+      lat: 49.3453, lng: -124.6389,
+      access: {
+        parking: "Roadside pull-outs along the Old Island Hwy (19A) between Little Qualicum River and Nile Creek give direct beach access; Qualicum Beach itself has town-side public access too.",
+        approach: "Walk straight down to the beach from roadside — no trail required.",
+        popularSpots: "The north side of the Nile Creek mouth is the most talked-about spot.",
+        waterType: "Open sand/gravel beach with a long, gently-sloping low-tide wade-out."
+      }
     },
     {
       id: "oyster-river-beach",
@@ -857,7 +908,13 @@ window.DATA = {
       gearSetup: "Small spoons and baitfish-profile jigs, cast and retrieve along current seams at the river mouth.",
       flies: ["All-white streamer", "Sand lance/epoxy minnow", "Chartreuse/white streamer"],
       nearestTown: "Campbell River, BC",
-      lat: 49.9308, lng: -125.1131
+      lat: 49.9308, lng: -125.1131,
+      access: {
+        parking: "Saratoga Beach / Oyster Bay Shoreline Regional Park off the Old Island Hwy has public parking close to the river mouth.",
+        approach: "Short walk from parking to the estuary and adjacent beach.",
+        popularSpots: "The estuary mouth itself, fished on an incoming tide.",
+        waterType: "Estuary and adjacent open beach — mixed sand/gravel."
+      }
     },
     {
       id: "roberts-creek-beach",
@@ -879,7 +936,13 @@ window.DATA = {
       gearSetup: "Pink Gibbs Croc spoons or small pink lures on a medium spinning rod, cast to visible pods.",
       flies: ["Pink beach streamer", "Chartreuse/white streamer", "Small pink Clouser"],
       nearestTown: "Roberts Creek, BC",
-      lat: 49.4225, lng: -123.6417
+      lat: 49.4225, lng: -123.6417,
+      access: {
+        parking: "Roberts Creek Provincial Park has a small day-use lot right on Beach Ave.",
+        approach: "The park's beach access leads directly to the cobblestone shoreline.",
+        popularSpots: "The park beach itself, plus the mouths of nearby Chapman and Langdale creeks worth checking on the same trip.",
+        waterType: "Cobblestone beach, clear Strait of Georgia water."
+      }
     }
   ],
   months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
