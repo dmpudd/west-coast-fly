@@ -214,7 +214,10 @@ function ResultCard({ f, month, onClick }) {
           <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-ink2 font-medium mb-1.5">
             <TypeIcon type={f.type} size={12} color="#666" /> {TYPE_LABEL[f.type]} · {f.region}
           </div>
-          <div className="text-[16px] font-medium text-navy leading-tight">{f.species}</div>
+          <div className="flex items-center gap-1.5">
+            <div className="text-[16px] font-medium text-navy leading-tight">{f.species}</div>
+            {f.oddYear && <OddYearBadge />}
+          </div>
           <div className="text-[13px] text-teal mt-0.5">{f.system}</div>
         </div>
         <div className="flex flex-col items-end gap-1.5 shrink-0">
@@ -264,6 +267,7 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
   const tabs = [];
   if (f.flySetup)  tabs.push({ id: 'fly',   label: 'Fly setup' });
   if (f.gearSetup) tabs.push({ id: 'gear',  label: 'Gear setup' });
+  if (f.access)    tabs.push({ id: 'details', label: 'Details' });
   if (f.yoy)       tabs.push({ id: 'years', label: 'Year notes' });
   const activeTab = tab || (tabs[0]?.id ?? null);
 
@@ -306,7 +310,10 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
                 <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-ink2 font-medium mb-1">
                   <TypeIcon type={f.type} size={12} color="#666" /> {TYPE_LABEL[f.type]} · {f.region}
                 </div>
-                <div className="text-[22px] font-medium text-navy leading-tight">{f.species}</div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="text-[22px] font-medium text-navy leading-tight">{f.species}</div>
+                  {f.oddYear && <OddYearBadge />}
+                </div>
                 <div className="text-[14px] text-teal mt-0.5">{f.system}</div>
               </div>
               <button onClick={onClose} className="w-9 h-9 rounded-full border border-line flex items-center justify-center hover:bg-off shrink-0" aria-label="Close">
@@ -332,9 +339,21 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
 
             {/* Quick facts */}
             <div className="grid grid-cols-3 gap-2">
-              <QuickFact icon="gauge" label="Gauge window" value={f.gaugeWindow || '—'} />
+              <div className="border border-line rounded-lg p-2.5 bg-white">
+                <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-ink2 font-medium">
+                  <Icon name="gauge" size={12} color="#666" /> Water/flow
+                </div>
+                <div className="text-[12.5px] text-navy mt-1 leading-snug">
+                  {f.type === 'river' ? <LiveGauge f={f} /> : (f.gaugeWindow || '—')}
+                </div>
+              </div>
               <QuickFact icon="rules" label="Daily limit"    value={f.limit} />
               <QuickFact icon="pin"   label="Nearest town"   value={f.nearestTown} />
+            </div>
+
+            <div className="text-[11px] text-ink2 flex items-center gap-1.5 flex-wrap">
+              <span>Limits last verified {new Date(DATA.regsInfo.verified + 'T00:00:00').toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })} · {DATA.regsInfo.verifyFrequency}</span>
+              <a href={f.type === 'river' || f.type === 'lake' ? (DATA.regsInfo.freshwaterByRegion[f.region] || DATA.regsInfo.freshwaterByRegion['Interior BC']) : DATA.regsInfo.tidalLink} target="_blank" rel="noopener" className="text-teal underline underline-offset-2">Check current regs →</a>
             </div>
 
             {/* Tabs */}
@@ -384,6 +403,22 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
                   {activeTab === 'gear' && f.gearSetup && (
                     <div className="border border-line rounded-lg p-3">
                       <p className="text-[13px] text-ink leading-relaxed">{f.gearSetup}</p>
+                    </div>
+                  )}
+
+                  {activeTab === 'details' && f.access && (
+                    <div className="border border-line rounded-lg overflow-hidden">
+                      {[
+                        ['Parking', f.access.parking],
+                        ['Getting there', f.access.approach],
+                        ['Popular spots', f.access.popularSpots],
+                        ['Water type', f.access.waterType],
+                      ].filter(([, v]) => v).map(([k, v], i) => (
+                        <div key={k} className={`grid grid-cols-[96px_1fr] gap-3 px-3 py-2.5 ${i ? 'border-t border-line' : ''}`}>
+                          <div className="text-[12px] uppercase tracking-wider text-ink2 font-medium pt-0.5">{k}</div>
+                          <div className="text-[13px] text-ink leading-relaxed">{v}</div>
+                        </div>
+                      ))}
                     </div>
                   )}
 
@@ -471,6 +506,10 @@ function DetailPanel({ f, month, onClose, isMobile, onOpenOther }) {
       </div>
     </>
   );
+}
+
+function OddYearBadge() {
+  return <span className="shrink-0 text-[10px] uppercase tracking-wide font-semibold text-white rounded-full px-2 py-0.5" style={{ background: '#C0604A' }}>Odd years only</span>;
 }
 
 function QuickFact({ icon, label, value }) {

@@ -1,4 +1,17 @@
 window.DATA = {
+  regsInfo: {
+    verified: "2026-08-01",
+    verifyFrequency: "Reviewed quarterly, or sooner after any in-season DFO/BC notice",
+    freshwaterByRegion: {
+      "Lower Mainland": "https://www2.gov.bc.ca/assets/gov/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations/region_2.pdf",
+      "Sea to Sky": "https://www2.gov.bc.ca/assets/gov/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations/region_2.pdf",
+      "Vancouver Island": "https://www2.gov.bc.ca/assets/gov/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations/region_1.pdf",
+      "Skeena / North Coast": "https://www2.gov.bc.ca/assets/gov/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations/region_6.pdf",
+      "Kootenay": "https://www2.gov.bc.ca/assets/gov/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations/region_4.pdf",
+      "Interior BC": "https://www2.gov.bc.ca/gov/content/sports-culture/recreation/fishing-hunting/fishing/freshwater/regulations",
+    },
+    tidalLink: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/tidal-maree-eng.html",
+  },
   fisheries: [
     {
       id: "cv-steelhead",
@@ -8,6 +21,7 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["fly", "gear"],
       season: { peak: [1,2], active: [0,3,11], light: [], off: [4,5,6,7,8,9,10] },
+      gaugeStation: "08MH001",
       gaugeWindow: "2.2–3.0m (Vedder Crossing)",
       gaugeLink: "https://wateroffice.ec.gc.ca",
       limit: "Hatchery: retention. Wild: C&R",
@@ -37,6 +51,7 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["fly", "gear"],
       season: { peak: [6], active: [5,7], light: [], off: [0,1,2,3,4,8,9,10,11] },
+      gaugeStation: "08MH001",
       gaugeWindow: "2.2–3.0m (Vedder Crossing)",
       limit: "Check DFO — river closes June 1, reopens July 1 for this run",
       tagline: "A smaller, less numerous run of 'red' chinook distinct from the fall whites — typically peaking in the fourth week of July. A first-light fishery: high sun pushes these fish tight-lipped into the deepest, choppiest water.",
@@ -60,6 +75,7 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["fly", "gear"],
       season: { peak: [8,9], active: [7,10], light: [], off: [0,1,2,3,4,5,6,11] },
+      gaugeStation: "08MH001",
       gaugeWindow: "2.2–3.0m (Vedder Crossing)",
       limit: "Check DFO — 1–2/day",
       tagline: "September–October peak. Albion test fishery indicator: peak around Sept 16–22. 2024 was the best chinook run in over a decade.",
@@ -83,6 +99,8 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["fly", "gear"],
       season: { peak: [9,10], active: [8], light: [], off: [0,1,2,3,4,5,6,7,11] },
+      gaugeStation: "08MH001",
+      gaugeWindow: "2.2–3.0m (Vedder Crossing)",
       limit: "1–2 hatchery coho/day — check DFO",
       tagline: "Late September through November. Find willing pods and move if fish aren't cooperating.",
       flySetup: {
@@ -105,6 +123,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [2,3,4], active: [1,5], light: [8,9], off: [0,6,7,10,11] },
+      gaugeStation: "08GA043",
+      gaugeWindow: "WSC gauge at Brackendale, just above the Cheakamus/Squamish confluence",
       limit: "All steelhead, hatchery and wild, must be released. Year-round bait ban — artificial presentations only.",
       tagline: "The Squamish system's most productive steelhead tributary, typically good March through May. Runs alongside the Sea to Sky Highway with a salmon hatchery on-system; resident rainbow, cutthroat and bull trout offer summer nymphing when the river drops after freshet.",
       flySetup: {
@@ -117,7 +137,13 @@ window.DATA = {
       flies: ["Orange/black steelhead fly", "Pink marabou", "Small stonefly nymph", "Caddis pupa"],
       yoy: { "2022": "Good — continued recovery since the 2005 chemical spill", "2023": "Good", "2024": "Good", "2025": "Good" },
       nearestTown: "Squamish, BC",
-      lat: 49.9333, lng: -123.1500
+      lat: 49.9333, lng: -123.1500,
+      access: {
+        parking: "Squamish Valley Road, off Hwy 99 north of Squamish, crosses the Cheakamus near Cheekye and gives the main access. Paradise Valley Road runs alongside more of the river further upstream — a large public lot sits across from the Cheakamus Centre on its west side.",
+        approach: "From the Squamish Valley Road bridge you can wade down or up from either bank. From the Paradise Valley Rd lot, it's a 5-minute walk up-road then across a field to the river. Further up Paradise Valley Road the pavement turns to gravel — continue slowly past 'no parking' signs to where the road ends and a trail picks up along the river; much of the paved-road frontage is private property.",
+        popularSpots: "The Cheakamus Centre run, the stretch by the second (Bailey) bridge on Squamish Valley Rd (walk down the railway grade, staying off the posted Outdoor School land), and the lower Cheakamus mouth into the Squamish — a well-known holding run.",
+        waterType: "Riffle-run canyon and gravel-bar water, glacial-tinted through summer freshet and clearing by fall/winter."
+      }
     },
     {
       id: "mamquam-rainbow",
@@ -127,6 +153,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [11,0,1], active: [2,9,10], light: [6,7], off: [3,4,5,8] },
+      gaugeStation: "08GA075",
+      gaugeWindow: "WSC gauge above Ring Creek — the river can blow out and clear within a day",
       limit: "All steelhead must be released. Year-round bait ban — artificial presentations only.",
       tagline: "The shortest major Squamish tributary and the easiest to access — popular near the CN Railway bridge. Known for genuine dry-fly rainbow trout action (8–12in) alongside a winter steelhead run and frequent bull trout bycatch. Can be finicky, blowing out and clearing within a day.",
       flySetup: {
@@ -139,7 +167,13 @@ window.DATA = {
       flies: ["Elk Hair Caddis", "Parachute Adams", "Small stonefly nymph", "Orange/black steelhead fly"],
       yoy: { "2022": "Good", "2023": "Good", "2024": "Good — reliable dry-fly water when flows cooperate", "2025": "Good" },
       nearestTown: "Squamish, BC",
-      lat: 49.7333, lng: -123.1167
+      lat: 49.7333, lng: -123.1167,
+      access: {
+        parking: "Small pull-outs near the CN Railway bridge over the Mamquam, and at Fisherman's Park off Judd Road (shared with the lower Squamish, a short walk from the Mamquam/Squamish confluence).",
+        approach: "Wade down from the railway bridge, or walk in from Judd Road to the confluence area.",
+        popularSpots: "The confluence of the Mamquam and Squamish is a well-known local favourite — expect company on a sunny day.",
+        waterType: "Short, flashy anadromous reach — can be in good shape one day and blown out the next after rain."
+      }
     },
     {
       id: "squamish-bull-trout",
@@ -149,6 +183,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [10,11,0], active: [1,2,9], light: [3,8], off: [4,5,6,7] },
+      gaugeStation: "08GA022",
+      gaugeWindow: "WSC gauge near Brackendale — glacial-fed, runs high/dirty through summer, clears through fall/winter",
       limit: "Catch & Release. Strict bait ban on the river and all tributaries at all times.",
       tagline: "Peak November–March following salmon spawning. Large resident rainbows join bull trout keying on eggs, flesh and drifting fry.",
       flySetup: {
@@ -161,7 +197,13 @@ window.DATA = {
       flies: ["Glo-Bug — peach fuzz", "Glo-Bug — dead egg (muted tan)", "Flesh fly — white/peach + orange hotspot", "Slumpbuster", "Vampire Leech (backup)", "Sculpin pattern (spring)", "Salmon fry pattern (spring)"],
       yoy: { "2022": "Excellent — strong salmon returns = abundant eggs", "2023": "Excellent", "2024": "Good", "2025": "Slightly below average — smaller swung flies noted as alternate" },
       nearestTown: "Squamish, BC",
-      lat: 49.7016, lng: -123.1558
+      lat: 49.7016, lng: -123.1558,
+      access: {
+        parking: "Fisherman's Park, off Judd Road in Brackendale — park at the lot at the end of Judd Road.",
+        approach: "Short trail from the parking lot to a white sand beach on the river's edge — easy wading access.",
+        popularSpots: "The Mamquam/Squamish confluence nearby is a favourite; lower river access points run from the Mamquam mouth down to the estuary launch off Government Road.",
+        waterType: "Large glacial mainstem — braided gravel bars, best fished as it clears from October through winter."
+      }
     },
     {
       id: "squamish-coho",
@@ -171,6 +213,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [9,10], active: [8,11], light: [], off: [0,1,2,3,4,5,6,7] },
+      gaugeStation: "08GA022",
+      gaugeWindow: "WSC gauge near Brackendale — fresh fish push in on a rising, then dropping, water bump",
       limit: "All wild fish are catch & release. Strict bait ban on the river and all tributaries at all times.",
       tagline: "The Squamish's marquee fall fishery. Chrome coho push into the system through September and October, with stragglers into early winter after a good water bump. Odd years (2025, 2027…) also bring a pink salmon run from mid-July to mid-September, best mid-to-late August.",
       flySetup: {
@@ -183,7 +227,13 @@ window.DATA = {
       flies: ["Large Intruder — chartreuse/pink/orange (high water)", "Coho Bugger — pink/orange", "Coho Bugger — olive/black (stale fish)", "Marabou Spey fly"],
       yoy: { "2022": "Good", "2023": "Good", "2024": "Good — a late-season water bump in December pushed fresh fish upriver", "2025": "Mixed — high, muddy early-fall conditions delayed the bite into October" },
       nearestTown: "Squamish, BC",
-      lat: 49.7050, lng: -123.1600
+      lat: 49.7050, lng: -123.1600,
+      access: {
+        parking: "Fisherman's Park, off Judd Road in Brackendale.",
+        approach: "Short trail to the river from the lot; the stretch along Government Road also has good wading access, especially productive during pink years.",
+        popularSpots: "Mamquam/Squamish confluence; Government Road frontage.",
+        waterType: "Large glacial mainstem, best in fall/winter clarity."
+      }
     },
     {
       id: "squamish-chum",
@@ -193,6 +243,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [10,11], active: [9], light: [], off: [0,1,2,3,4,5,6,7,8] },
+      gaugeStation: "08GA022",
+      gaugeWindow: "WSC gauge near Brackendale",
       limit: "All wild fish are catch & release. Strict bait ban on the river and all tributaries at all times.",
       tagline: "A reliable, hard-fighting fall run alongside coho — often overlooked but well worth targeting on lighter Spey gear.",
       flySetup: {
@@ -215,6 +267,8 @@ window.DATA = {
       region: "Sea to Sky",
       method: ["fly"],
       season: { peak: [], active: [1,2,3], light: [0,11], off: [4,5,6,7,8,9,10] },
+      gaugeStation: "08GA022",
+      gaugeWindow: "WSC gauge near Brackendale (Squamish mainstem) — also check the Cheakamus gauge (08GA043), the more productive tributary",
       limit: "All steelhead, hatchery and wild, must be released.",
       tagline: "A lighter, more incidental fishery than the Skeena or Chilliwack systems — steelhead show throughout the Squamish valley, but the Cheakamus tributary is consistently the more productive water. Many are picked up while fishing fry and sculpin patterns for bull trout and rainbows in spring.",
       flySetup: {
@@ -236,6 +290,7 @@ window.DATA = {
       type: "beach",
       region: "Sea to Sky",
       method: ["fly", "gear"],
+      oddYear: true,
       season: { peak: [7], active: [6], light: [], off: [0,1,2,3,4,5,8,9,10,11] },
       limit: "Check DFO tidal licence limits — pinks return in odd years only (2025, 2027…)",
       tagline: "A Howe Sound beach fishery on the Sea to Sky Highway between Porteau Cove and Squamish. Massive schools of pink salmon show late July through August in odd years, with some coho mixed in. Net-pen chinook drifting from Porteau/Britannia occasionally produce a bonus, spotty chinook bite — not a reliable target.",
@@ -359,6 +414,8 @@ window.DATA = {
       region: "Vancouver Island",
       method: ["fly", "gear"],
       season: { peak: [8,9], active: [7,10], light: [], off: [0,1,2,3,4,5,6,11] },
+      gaugeStation: "08HA011",
+      gaugeWindow: "WSC gauge near Duncan — flow is partly regulated by the Cowichan Lake weir, so it's steadier than most coastal rivers, but drought years can still trigger low-flow closures.",
       limit: "Most of the river closes to chinook Aug 1–Nov 15 except the fly-fishing-only zone (Cowichan Lake weir to the 66 Mile Trestle, past Skutz Falls) — check the current Synopsis.",
       tagline: "Once the south coast's problem child, Cowichan chinook have rebounded sharply — 2024 escapement was roughly 23,000 adults plus 15,000 jacks. A modest run compared to chum and coho, but growing fast, entering as soon as flows allow from September.",
       flySetup: {
@@ -371,7 +428,13 @@ window.DATA = {
       flies: ["Intruder-style tube fly", "Egg-sucking leech", "Marabou streamer"],
       yoy: { "2022": "Improving", "2023": "Strong", "2024": "Excellent — escapement well above target for the third straight year", "2025": "Excellent" },
       nearestTown: "Duncan, BC",
-      lat: 48.7784, lng: -123.7079
+      lat: 48.7784, lng: -123.7079,
+      access: {
+        parking: "Multiple public access points along Riverbottom Road and Skutz Falls Road, plus Stoltz Pool and the 66 Mile Trestle area upstream.",
+        approach: "A well-established fly-fishing river with a maintained trail system along much of the fly-only zone above Skutz Falls; lower-river bank access is more piecemeal via road pull-outs.",
+        popularSpots: "Skutz Falls, Stoltz Pool, and the stretch immediately below the Cowichan Lake weir are the best-known runs; a guided drift boat is worth it for a first visit to learn the water.",
+        waterType: "Classic riffle-pool trout and salmon water, weir-regulated flow keeps it wadeable most of the year."
+      }
     },
     {
       id: "cowichan-chum",
@@ -381,6 +444,8 @@ window.DATA = {
       region: "Vancouver Island",
       method: ["fly", "gear"],
       season: { peak: [10,11], active: [9], light: [], off: [0,1,2,3,4,5,6,7,8] },
+      gaugeStation: "08HA011",
+      gaugeWindow: "WSC gauge near Duncan",
       limit: "Typically opens in November — check the current Synopsis for dates and retention.",
       tagline: "The most abundant salmon in the Cowichan system by a wide margin — tens of thousands return most years, contributing enormous nutrient loads to the watershed after spawning.",
       flySetup: {
@@ -403,6 +468,8 @@ window.DATA = {
       region: "Vancouver Island",
       method: ["fly", "gear"],
       season: { peak: [10,11], active: [9,0], light: [], off: [1,2,3,4,5,6,7,8] },
+      gaugeStation: "08HA011",
+      gaugeWindow: "WSC gauge near Duncan",
       limit: "Typically opens in November — check the current Synopsis for dates and retention.",
       tagline: "Recent escapements have topped 10,000 adults, with survival running higher than most other Strait of Georgia systems. The last of the three salmon runs to arrive, often pushing well into January.",
       flySetup: {
@@ -425,6 +492,8 @@ window.DATA = {
       region: "Vancouver Island",
       method: ["fly", "gear"],
       season: { peak: [0,1], active: [11,2], light: [], off: [3,4,5,6,7,8,9,10] },
+      gaugeStation: "08HA011",
+      gaugeWindow: "WSC gauge near Duncan — weir-regulated, so winter flows stay comparatively stable",
       limit: "Wild steelhead: catch & release. One of southern BC's better remaining wild winter runs, but numbers are modest (roughly 500–800 fish/year over the last decade) — handle fish with care.",
       tagline: "December through March. A high-value, lightly-stocked wild fishery — far smaller than 1980s returns (which topped 2,000) but still one of the better winter steelhead rivers left in southern Vancouver Island.",
       flySetup: {
@@ -447,6 +516,8 @@ window.DATA = {
       region: "Vancouver Island",
       method: ["fly"],
       season: { peak: [3,4,9,10], active: [2,11,0], light: [1], off: [5,6,7,8] },
+      gaugeStation: "08HA011",
+      gaugeWindow: "WSC gauge near Duncan",
       limit: "Check BC Freshwater Synopsis — closes July–August",
       tagline: "Finest trout stream on Vancouver Island. BC's only viable brown trout fishery. Spring streamer fishing for browns in March–April is world-class.",
       flySetup: {
@@ -475,7 +546,8 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["fly"],
       season: { peak: [7,8], active: [6,9], light: [], off: [0,1,2,3,4,5,10,11] },
-      limit: "Check BC Freshwater Synopsis",
+      gaugeWindow: "Clear, dropping flows by mid-July — check the WSC real-time map for the Skagit River near Hope for current levels (exact station ID not yet confirmed for this guide)",
+      limit: "Region 2 general regs apply: rainbow trout typically 2/day (confirm size rules) — bull trout/Dolly Varden are catch & release only. Always confirm current Freshwater Synopsis before keeping fish.",
       tagline: "2–2.5 hour drive from Vancouver through Manning Park. Crystal-clear water. Dry fly season starts mid-July when water drops.",
       flySetup: {
         rod: "4–5wt, 9ft single-hand",
@@ -486,6 +558,12 @@ window.DATA = {
       gearSetup: "Fly fishing is primary method on this river.",
       flies: ["Girdle Bug", "Prince Nymph", "Klinkhammer", "Adams", "Golden Stonefly Nymph", "Rabbit Strip Leech (bull trout)"],
       yoy: { "2022": "Good — low pressure, clear water", "2023": "Good", "2024": "Good — water drop to prime levels around July 20", "2025": "Good" },
+      access: {
+        parking: "Two main trailheads bracket the river: Sumallo Grove day-use area (north end, off Hwy 3 in Manning Park — paved lot, ~30 cars, outhouse) or 26 Mile Bridge / Silver Skagit Road (south end, gravel road in from Hope, rougher access but closer to the best-known runs).",
+        approach: "The Skagit River Trail (15km one-way, easy grade, gravel/dirt) runs the full length between the two trailheads, staying close to the river with frequent gravel-bar access. Most anglers walk in 10–30 minutes from either end rather than doing the whole trail — Delacey Camp, a few km down from Sumallo Grove, is a well-known easy-access fishing spot.",
+        popularSpots: "26 Mile Bridge itself is a popular, easy pool for a first visit. From there, work downstream via gravel bars — locals recommend continuing past the first access rather than stopping at the bridge, which sees the most pressure.",
+        waterType: "Clear, wadeable pocket water and riffle-run sequences over cobble/gravel — polarized glasses help a lot for sight-fishing to visible trout in the clear water."
+      },
       nearestTown: "Manning Park / Hope, BC",
       lat: 49.0608, lng: -120.7673
     },
@@ -727,6 +805,8 @@ window.DATA = {
       region: "Lower Mainland",
       method: ["gear"],
       season: { peak: [7,8,9], active: [2,3,4,5,6,10], light: [0,1,11], off: [] },
+      gaugeStation: "08MH024",
+      gaugeWindow: "Fraser River at Mission — sturgeon fishing is more about slack tides and bait scent than exact flow",
       limit: "CATCH & RELEASE ONLY — zero retention ever",
       tagline: "Year-round C&R fishery. September described as phenomenal in 2024 and 2025. Double-digit days common August–September with salmon bait.",
       flySetup: null,
@@ -735,6 +815,71 @@ window.DATA = {
       yoy: { "2022": "Strong", "2023": "Excellent", "2024": "Exceptional — September 'some of the best all year'", "2025": "Phenomenal — one of the best seasons in recent memory" },
       nearestTown: "Fort Langley, BC",
       lat: 49.1697, lng: -122.5786
+    },
+    {
+      id: "nile-creek-beach",
+      species: "Pink Salmon (+ Coho, Chinook)",
+      system: "Nile Creek / Qualicum Beach",
+      type: "beach",
+      region: "Vancouver Island",
+      method: ["fly", "gear"],
+      oddYear: true,
+      season: { peak: [7], active: [6,8], light: [9], off: [0,1,2,3,4,5,10,11] },
+      limit: "Check DFO tidal licence limits — pinks return in odd years only (2025, 2027…); coho/chinook retention varies by opening",
+      tagline: "East Vancouver Island's classic beach run, stretching from Little Qualicum River north to Nile Creek. Pinks arrive first (late July–early Sept, odd years only), with coho and chinook through October. Fish the lowest tides for the longest wade-out.",
+      flySetup: {
+        rod: "7–8wt, 9ft single-hand",
+        line: "Floating or clear intermediate",
+        leader: "8–12lb fluorocarbon",
+        technique: "Sight-cast to schools cruising the shallows on a dropping or low tide. Pinks respond to almost any pink/white pattern; slow down and switch to natural baitfish colours for coho."
+      },
+      gearSetup: "Small pink/silver spoons and jigs on a medium spinning rod, cast to visible pods. Most anglers fish the north side of the Nile Creek mouth.",
+      flies: ["Pink beach streamer", "Small pink Clouser", "Sand lance/epoxy minnow"],
+      nearestTown: "Qualicum Beach, BC",
+      lat: 49.3453, lng: -124.6389
+    },
+    {
+      id: "oyster-river-beach",
+      species: "Coho Salmon — Beach",
+      system: "Oyster River Beach / Discovery Passage",
+      type: "beach",
+      region: "Vancouver Island",
+      method: ["fly", "gear"],
+      season: { peak: [8], active: [7,9], light: [], off: [0,1,2,3,4,5,6,10,11] },
+      limit: "Check DFO tidal licence limits — coho retention varies by opening",
+      tagline: "The Oyster River mouth near Campbell River — close to Quadra Island via the Quathiaski Cove ferry — sees a reliable late-summer coho push along the beach as fish stage before running up the river.",
+      flySetup: {
+        rod: "7–8wt, 9ft single-hand",
+        line: "Floating or clear intermediate",
+        leader: "8–12lb fluorocarbon",
+        technique: "Fish the estuary and adjacent beach on the push of an incoming tide, first light best. Baitfish patterns outfish generic pink flies here once fish have been in salt a while."
+      },
+      gearSetup: "Small spoons and baitfish-profile jigs, cast and retrieve along current seams at the river mouth.",
+      flies: ["All-white streamer", "Sand lance/epoxy minnow", "Chartreuse/white streamer"],
+      nearestTown: "Campbell River, BC",
+      lat: 49.9308, lng: -125.1131
+    },
+    {
+      id: "roberts-creek-beach",
+      species: "Pink Salmon (+ Coho, Chum)",
+      system: "Roberts Creek Beach",
+      type: "beach",
+      region: "Sunshine Coast",
+      method: ["fly", "gear"],
+      oddYear: true,
+      season: { peak: [7], active: [6,8], light: [9,10], off: [0,1,2,3,4,5,11] },
+      limit: "Check DFO tidal licence limits — pinks return in odd years only (2025, 2027…); chum/coho retention varies by opening",
+      tagline: "A cobblestone beach at Roberts Creek Provincial Park on the Sunshine Coast — one of the region's most reliable pink runs in odd years, with coho through early fall and chum arriving October–November. Nearby Chapman Creek and Langdale Creek are worth checking too.",
+      flySetup: {
+        rod: "7–8wt, 9ft single-hand",
+        line: "Floating or clear intermediate",
+        leader: "8–12lb fluorocarbon",
+        technique: "Sight-cast to surface-milling schools at low tide. Standard pink/white patterns for pinks; slow down and go natural for coho and chum later in the season."
+      },
+      gearSetup: "Pink Gibbs Croc spoons or small pink lures on a medium spinning rod, cast to visible pods.",
+      flies: ["Pink beach streamer", "Chartreuse/white streamer", "Small pink Clouser"],
+      nearestTown: "Roberts Creek, BC",
+      lat: 49.4225, lng: -123.6417
     }
   ],
   months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
