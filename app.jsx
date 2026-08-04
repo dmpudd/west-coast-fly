@@ -16,6 +16,7 @@ const TABS = [
   { id: 'flies',    label: 'Flies',    icon: 'fly' },
   { id: 'kokanee',  label: 'Kokanee',  icon: 'fish' },
   { id: 'lakes',    label: 'Interior Lakes', icon: 'lake' },
+  { id: 'lodges',   label: 'Lodges',    icon: 'lodge' },
 ];
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
         {view === 'flies'    && <FliesView    isMobile={isMobile} />}
         {view === 'kokanee'  && <KokaneeView  isMobile={isMobile} />}
         {view === 'lakes'    && <InteriorLakesView isMobile={isMobile} />}
+        {view === 'lodges'   && <LodgesView isMobile={isMobile} />}
       </main>
 
       {/* Mobile bottom tab bar */}

@@ -184,6 +184,8 @@ function Icon({ name, size = 20, color = 'currentColor', stroke = 1.7 }) {
       return <svg style={s} viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="14" rx="3" stroke={c} strokeWidth={w}/><circle cx="12" cy="19" r="3" stroke={c} strokeWidth={w}/></svg>;
     case 'snow':
       return <svg style={s} viewBox="0 0 24 24" fill="none"><path d="M12 3v18M4 7l16 10M4 17L20 7M7 5l5 3 5-3M7 19l5-3 5 3" stroke={c} strokeWidth={w} strokeLinecap="round"/></svg>;
+    case 'lodge':
+      return <svg style={s} viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6" stroke={c} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round"/><path d="M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke={c} strokeWidth={w} strokeLinejoin="round"/><path d="M10 20v-5a2 2 0 014 0v5" stroke={c} strokeWidth={w}/></svg>;
     case 'boat':
       return <svg style={s} viewBox="0 0 24 24" fill="none"><path d="M3 17l1.5-4h15L21 17" stroke={c} strokeWidth={w} strokeLinejoin="round"/><path d="M12 13V4l6 9" stroke={c} strokeWidth={w} strokeLinejoin="round"/><path d="M3 19c2 1 2 1.5 4 1.5s2-1.5 5-1.5 3 1.5 5 1.5 2-.5 4-1.5" stroke={c} strokeWidth={w} strokeLinecap="round"/></svg>;
     default: return null;
