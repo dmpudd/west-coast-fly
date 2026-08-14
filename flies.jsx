@@ -10,6 +10,14 @@ const CATEGORY_MAP = {
   'beach':      'beach',
   'steelhead-salmon': 'river',
   'eggs':       'river',
+  'water-boatman': 'lake',
+};
+
+const CATEGORY_LABEL = {
+  chironomid: 'Chironomids & bloodworms', leech: 'Leeches & buggers', attractor: 'Blobs, boobies & attractors',
+  damsel: 'Damselflies', dragonfly: 'Dragonflies', scud: 'Shrimp (scuds)', 'water-boatman': 'Water boatmen & backswimmers',
+  mayfly: 'Mayflies', caddis: 'Caddis (sedge)', 'dry-fly': 'Dry flies & emergers', nymph: 'Nymphs & wet flies',
+  streamer: 'Streamers & baitfish', 'steelhead-salmon': 'Steelhead', eggs: 'Egg patterns', beach: 'Beach patterns',
 };
 
 function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
@@ -151,6 +159,19 @@ function FlyCard({ p, open, onToggle, onEnlarge }) {
             <div className="text-[11px] uppercase tracking-wider text-ink2 font-semibold mb-1">Technique</div>
             <div className="text-[13px] text-ink leading-relaxed">{p.technique}</div>
           </div>
+          {DATA.flyTactics[p.category] && (
+            <div className="mt-3">
+              <div className="text-[11px] uppercase tracking-wider text-ink2 font-semibold mb-1">Field notes — {CATEGORY_LABEL[p.category] || p.category}</div>
+              <ul className="space-y-1.5">
+                {DATA.flyTactics[p.category].map((t, i) => (
+                  <li key={i} className="text-[13px] text-ink leading-relaxed flex gap-2">
+                    <span className="text-teal shrink-0 pt-1.5"><div className="w-1.5 h-1.5 rounded-full bg-teal" /></span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -158,3 +179,5 @@ function FlyCard({ p, open, onToggle, onEnlarge }) {
 }
 
 window.FliesView = FliesView;
+window.CATEGORY_MAP = CATEGORY_MAP;
+window.CATEGORY_LABEL = CATEGORY_LABEL;

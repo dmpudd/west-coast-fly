@@ -13,7 +13,8 @@ const TABS = [
   { id: 'home',     label: 'Home',     icon: 'home' },
   { id: 'explore',  label: 'Explore',  icon: 'search' },
   { id: 'calendar', label: 'Calendar', icon: 'calendar' },
-  { id: 'flies',    label: 'Flies',    icon: 'fly' },
+  { id: 'flies',    label: 'Fly Patterns', icon: 'fly' },
+  { id: 'techniques', label: 'Techniques', icon: 'rules' },
   { id: 'kokanee',  label: 'Kokanee',  icon: 'fish' },
   { id: 'lakes',    label: 'Interior Lakes', icon: 'lake' },
   { id: 'lodges',   label: 'Lodges',    icon: 'lodge' },
@@ -72,6 +73,7 @@ function App() {
         {view === 'explore'  && <ExploreView  isMobile={isMobile} initial={exploreState} />}
         {view === 'calendar' && <CalendarView isMobile={isMobile} goto={goto} />}
         {view === 'flies'    && <FliesView    isMobile={isMobile} />}
+        {view === 'techniques' && <TechniquesView isMobile={isMobile} />}
         {view === 'kokanee'  && <KokaneeView  isMobile={isMobile} />}
         {view === 'lakes'    && <InteriorLakesView isMobile={isMobile} />}
         {view === 'lodges'   && <LodgesView isMobile={isMobile} />}

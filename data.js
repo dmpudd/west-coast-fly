@@ -132,6 +132,50 @@ window.DATA = {
       lat: 49.1579, lng: -121.9514
     },
     {
+      id: "harrison-chinook",
+      species: "Fall Chinook",
+      system: "Harrison River",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly","gear"],
+      season: { peak: [9,10], active: [8,11], light: [], off: [0,1,2,3,4,5,6,7] },
+      limit: "Check the BC Freshwater Synopsis and DFO tidal boundary rules annually — retention varies by section and year.",
+      tagline: "A Fraser tributary flowing out of Harrison Lake at Harrison Mills. Fall chinook stage here before pushing upstream, with the famous chum run following close behind.",
+      flySetup: {
+        rod: "9–10ft 8–10wt single-hand or 12–13ft Spey",
+        line: "Heavy sink tip or Skagit + T-10 to T-14",
+        leader: "3–4ft mono 20–30lb",
+        technique: "Cover deep, fast slots rather than slow pools — fish hold in the same style of water as C/V chinook. Swing & step through likely runs."
+      },
+      gearSetup: "Bottom-bouncing roe or beads in deeper runs; spinners in faster water.",
+      flies: ["Intruder-style 1/0–2/0", "Pink, orange, chartreuse"],
+      yoy: { "2022": "Not tracked in detail", "2023": "Not tracked in detail", "2024": "Good", "2025": "Good" },
+      nearestTown: "Harrison Mills, BC",
+      lat: 49.2989, lng: -121.7889
+    },
+    {
+      id: "harrison-chum",
+      species: "Chum Salmon",
+      system: "Harrison River",
+      type: "river",
+      region: "Lower Mainland",
+      method: ["fly","gear"],
+      season: { peak: [10,11], active: [9], light: [], off: [0,1,2,3,4,5,6,7,8] },
+      limit: "Typically non-retention on the Harrison system — check the current Synopsis before keeping any fish.",
+      tagline: "One of BC's largest chum runs, and the reason thousands of bald eagles gather at Harrison Mills every November to feed on spawned-out fish — a spectacle worth seeing even between bites.",
+      flySetup: {
+        rod: "8–9wt, 12–13ft Spey or 9ft single-hand",
+        line: "Floating or light Skagit + T-8",
+        leader: "6–8ft fluorocarbon 10–12lb",
+        technique: "Chartreuse and purple attract chum reliably. Swing through tailouts and soft seams — chum tend to hold lower in the system."
+      },
+      gearSetup: "Not typically fished with gear on the fly-focused stretches — check local access rules.",
+      flies: ["Marabou Spey fly — purple/chartreuse", "Chartreuse & white streamer"],
+      yoy: { "2022": "Good", "2023": "Good", "2024": "Good", "2025": "Good" },
+      nearestTown: "Harrison Mills, BC",
+      lat: 49.2989, lng: -121.7889
+    },
+    {
       id: "cheakamus-steelhead",
       species: "Steelhead & Resident Trout",
       system: "Cheakamus River",
@@ -1074,8 +1118,8 @@ window.DATA = {
       lat: 50.4132, lng: -121.3541,
       access: {
         parking: "Juniper Beach, Goldpan and Skihist Provincial Parks all give day-use and camping access along the Trans-Canada Highway between Cache Creek and Lytton; Walhachin and Ashcroft access the Kamloops Lake-to-Spences Bridge stretch.",
-        approach: "Walk up or downstream from any provincial park day-use area. The Spences Bridge-to-Lytton stretch has better access due to a wider, flatter valley; the lower canyon toward the Fraser confluence is steep and turbulent — experienced anglers only.",
-        popularSpots: "The water just downstream of Spences Bridge, and the stretch in front of Juniper Beach campground, are well-known starting points.",
+        approach: "Walk up or downstream from any provincial park day-use area. The Spences Bridge-to-Lytton stretch has better access due to a wider, flatter valley; the lower canyon toward the Fraser confluence is steep and turbulent — experienced anglers only. Wade and rock-hop carefully, and keep an eye on changing water levels.",
+        popularSpots: "The water just downstream of Spences Bridge, and the stretch in front of Juniper Beach campground, are well-known starting points. Good beginner-friendly stretches: Juniper Beach Provincial Park east of Cache Creek off Highway 1, the many pull-outs along the highway upstream from Ashcroft, and the area around Spences Bridge just north of town, where the ground flattens out and access is easier. Both dry-fly and nymphing tactics produce well.",
         waterType: "Large, powerful freestone river — high and turbid in early summer freshet, dropping to good dry-fly clarity by mid-July."
       }
     },
@@ -1400,8 +1444,204 @@ window.DATA = {
     { name: "Grease Liner", category: "steelhead-salmon", environment: ["river"], hookSize: "#4–#8", colours: "Natural deer hair, sparse dressing", technique: "Greased-line presentation — swims just under the surface film on a semi-slack line. Classic low-water summer steelhead technique." },
     { name: "General Practitioner", category: "steelhead-salmon", environment: ["river"], hookSize: "#2–#6", colours: "Orange body, brown/orange bucktail wing, jungle cock cheeks", technique: "Standard swung wet fly for Skeena-system steelhead. Effective in a wide range of water heights and clarity." },
     { name: "Riffle-Hitched Muddler", category: "steelhead-salmon", environment: ["river"], hookSize: "#4–#8", colours: "Natural deer hair head, gold tinsel body", technique: "Hitch knot pulls the fly to swim across the surface leaving a wake — deadly on Bulkley-system tailouts." },
-    { name: "Kokanee-Pattern Streamer", category: "streamer", environment: ["lake"], hookSize: "#1/0–#4", colours: "Silver/white body, pink or red throat, holographic flash", technique: "Long, slow strips through deep structure and current seams — imitates a Gerrard rainbow's primary forage." }
+    { name: "Kokanee-Pattern Streamer", category: "streamer", environment: ["lake"], hookSize: "#1/0–#4", colours: "Silver/white body, pink or red throat, holographic flash", technique: "Long, slow strips through deep structure and current seams — imitates a Gerrard rainbow's primary forage." },
+    { name: "Water Boatman / Backswimmer", category: "water-boatman", environment: ["lake"], hookSize: "#12–#14", colours: "Dark olive/brown back, light cream-yellow underside; deer hair or foam back", technique: "Fast erratic strip near the surface — most effective when fish are 'watching the sky' for naturals coming up for air." },
+    { name: "Mikulak Sedge", category: "dry-fly", environment: ["lake"], hookSize: "#10–#14", colours: "Elk/deer hair wing, brown body", technique: "Skating retrieve during the travelling sedge emergence — one of BC's most explosive surface takes." },
+    { name: "Pheasant Tail Nymph", category: "mayfly", environment: ["river","lake"], hookSize: "#12–#16", colours: "Natural pheasant tail, copper wire rib", technique: "Strip slowly or fish under an indicator; classic search pattern during mayfly emergences." },
+    { name: "Hare's Ear Nymph", category: "nymph", environment: ["river","lake"], hookSize: "#12–#16", colours: "Tan/brown hare's ear dubbing", technique: "Indicator or stripped; shaggy profile suggests many naturals — a dependable all-season search pattern." },
+    { name: "Prince Nymph", category: "nymph", environment: ["river"], hookSize: "#10–#16", colours: "Peacock herl body, brown hackle, white biots", technique: "Classic nymph fished under an indicator or tight-lined through pocket water and seams." },
+    { name: "Girdle Bug", category: "nymph", environment: ["river"], hookSize: "#8–#12", colours: "Black rubber legs, chenille body", technique: "Fast-water pattern — the rubber-leg movement in current is the trigger. Good early-season searching fly." },
+    { name: "Klinkhammer", category: "dry-fly", environment: ["river"], hookSize: "#12–#16", colours: "Olive, tan, grey body; curved hook, parachute hackle", technique: "Rides in the surface film — fish during afternoon hatches to trout keying on emergers." },
+    { name: "Sand Lance / Epoxy Minnow", category: "beach", environment: ["beach"], hookSize: "#2–#6 saltwater", colours: "Silver/olive, silver/blue, UV finishes", technique: "Steady retrieve with a pause, matched to visible baitfish activity." },
+    { name: "Crab Larva Pattern", category: "beach", environment: ["beach"], hookSize: "#6–#8 saltwater", colours: "Small, pale tan/olive, sparse dressing", technique: "Slow retrieve near the surface — often outfishes flashier patterns on calm days when fish are keyed on crab larvae." }
   ],
+  flyTactics: {
+    chironomid: [
+      "Colours: black/red, olive/red, maroon, brown, with silver or gold wire rib; 'Chromie' (silver/mylar) for the ascending gas-bubble phase.",
+      "Depth is everything — suspend the fly 1–2ft off bottom; beyond 15ft go 'naked' (no indicator, weighted fly, floating line, long leader).",
+      "Zero-retrieve principle: cast, let it sit, then a 1-inch twitch every 15 seconds. Resist working it harder.",
+      "Hatch runs ice-off through fall; spring and fall windows often outproduce summer. Net a natural to match size and colour.",
+      "Anchor with the wind at your back so fish face into the current; fish 1–2ft off bottom or off the top of the weeds."
+    ],
+    leech: [
+      "Colours: black, maroon; size 1–1.5in on extra-long-shank hooks #6–10.",
+      "Trolling: 3–5ft leader on intermediate/sinking line in deep water, or 15–20ft leader on floating line over shoals.",
+      "Cast & strip: fish on or near the bottom — inch-by-inch retrieve on the bottom, 6–12in pulls mid-water. Expect hits mid-retrieve and keep going.",
+      "Bend the front third of the fly slightly so it undulates as it's pulled."
+    ],
+    attractor: [
+      "Booby: sink line + 3–5ft leader, sink to bottom, then a fast erratic retrieve with a 1–3 second pause.",
+      "Blob: fish it much like a chironomid — static or a slow hand twist under an indicator.",
+      "Both are early ice-off staples and reliable backups any time nothing else is working."
+    ],
+    damsel: [
+      "About 2cm long, mustard yellow to olive-brown — match colour to the lake.",
+      "Depth 4–20ft on a floating or intermediate line with a long leader.",
+      "Retrieve: long, slow pulls with pauses and an occasional twitch. Nymphs rise at an angle, then swim horizontally toward shore.",
+      "Target the shallow-to-drop-off transition during emergence — May in low, warm lakes; September at high elevation."
+    ],
+    dragonfly: [
+      "Darner (slender, ~5cm) and Gomphus/Sprawler (rounded, flat, ~3.5cm) — colour to match the lake bottom.",
+      "Anchor near a shoal or drop-off; cast toward deep water, sink to bottom, retrieve inch by inch — or cast from deep to shallow and use a quick 20cm retrieve.",
+      "Under 10ft, use a sink-tip and weighted fly; over 10ft, a full sink line.",
+      "Targeted during emergence, late spring into early fall; strip along the bottom in short pulls late evening."
+    ],
+    scud: [
+      "Gammarus (up to 2.5cm) and Hyallella (~0.75cm) — match size and colour to the lake bottom.",
+      "Fish close to the bottom: 15–30cm pulls then rest 2–5 seconds, or an erratic mix of short quick pulls and longer slow ones.",
+      "Best in morning or evening low light; productive year-round, especially late fall and early spring.",
+      "A 12ft leader with 4lb tippet works well, especially in cloudy water."
+    ],
+    "water-boatman": [
+      "Boatmen run about 1cm, backswimmers about 1.5cm; best fished in early spring and late fall.",
+      "In 10–20ft: floating line + 12–18ft leader + weighted fly — 5 to 10 strips of 3–4in with 2–3 second pauses, especially over weed beds.",
+      "Slow-sink approach: floatant on the last 10ft of line, leader and fly; erratic short strips as it's pulled under, pause, let it drift back up.",
+      "Fish take them at the surface while they're gathering air — this produces hard strikes."
+    ],
+    mayfly: [
+      "Emergence typically late May–July; nymphs are available year-round. Favour clear lakes with vegetation.",
+      "Nymphs: 20–25ft on an intermediate sink line + 4–5ft leader for the bottom, or floating line in shallower water — slow hand twist with a long pause.",
+      "Adults: a slim pattern on a 2X-long hook with a long leader. Cast gently near reed beds, let it sit, then work it slowly to open water.",
+      "On rivers, dead-drift emergers and duns in the surface film to visibly rising fish."
+    ],
+    caddis: [
+      "Life stages run egg, larva, pupa, adult — colours brown, green and yellow, with the pupa a bit brighter.",
+      "Larva: found in 20ft or less, in shallow, weedy or rocky areas; match colour to the bottom mud or silt. Available year-round.",
+      "Pupa: hatch runs mid-June through September, best in June/July. Major hatches usually hit in early afternoon — match pupa size to the lake.",
+      "Adult: fast retrieve across the surface on a dry line to create a wake and keep the fly dry. A trout may roll and circle back — be patient before striking."
+    ],
+    "dry-fly": [
+      "Lakes: floating line + 9ft tapered leader + 3ft tippet; apply floatant to the leader, not the tippet.",
+      "Rising fish: cast 1–2 yards ahead. Not rising: target overhanging bushes, docks, or reed beds — give the fly life with a few rod-tip wags, or let it sit still.",
+      "Rivers: drift drag-free with upstream mends; let the fly rest at the end of the drift and don't force a big hookset — just tighten as the fish turns down.",
+      "Match fly brightness to the day — bright day, bright fly; overcast, dark fly. Darken up as evening light fades."
+    ],
+    nymph: [
+      "Get the fly to the bottom with a drag-free drift — trout feed mainly along the bottom in rivers.",
+      "Indicator nymphing: set the leader at 1.5–2x the water's depth; minimizing drag from the indicator and line is the key to a good drift.",
+      "High-sticking: flip the fly upstream, hold the rod at about 45°, keep no slack, use a heavily weighted fly, and keep drifts short in fast riffles — strikes are often subtle.",
+      "Czech/Polish nymphing: rod parallel to the water with the leader running under the tip — fish pocket water and the seams behind boulders."
+    ],
+    "steelhead-salmon": [
+      "Floating line: 9–12ft leader + 8–12lb tippet, fly size 2/4/6. Cast across or upstream at ~45°, mend and swing — wet fly beats dry under 40°F.",
+      "Sink line: 4–5ft leader to keep the fly up off the bottom; quarter-downstream cast; keep a slow, walking-pace swing.",
+      "Bright flies in winter, dark in summer isn't a hard rule — use dark flies in low light or turbid water. Fish often set the hook themselves.",
+      "Summer dry fly: floating line + 10ft leader. Cast upstream of the hold and mend repeatedly as it swings in; a jerky movement is a good trigger. Don't set the hook until the fish turns and heads back upstream.",
+      "Notable rivers: Dean, Kispiox and Thompson are among the most powerful steelhead rivers in BC."
+    ],
+    eggs: [
+      "Fish under an indicator, dead drift, with minimal movement.",
+      "Scale down in size and switch to muted 'dead egg' colours in low, clear water or for selective fish."
+    ],
+    streamer: [
+      "Low light is the best time to fish streamers — use a down-and-across swing with a consistently quick retrieve.",
+      "Line by season: floating + 8lb tippet in warm, clear water; intermediate or sink-tip as the water cools; full sink + short leader to get deep.",
+      "Pools: short lob casts at the top, lengthening as you work down, always stripping the fly in. Riffles: find the deeper spots and swing or strip through them."
+    ],
+    beach: [
+      "Clear intermediate line with an erratic strip-pause retrieve; change fly colour every few casts until the fish tell you what they want.",
+      "Match to visible baitfish activity — a steady retrieve with a pause on sand lance or minnow patterns.",
+      "Crab larva patterns (small, pale) often outfish flashier flies on calm days — an overlooked option worth carrying."
+    ]
+  },
+  techniques: {
+    lake: [
+      { title: "Reading a lake", items: [
+        "Explore a new lake before settling in — troll the drop-off (3–6m), around islands, shallows and shoals (aquatic vegetation).",
+        "Vary trolling speed and zig-zag the boat before changing flies.",
+        "Watch other anglers who are catching fish — note their depth, location and retrieve."
+      ]},
+      { title: "Casting & strike", items: [
+        "Casting stroke: 10 o'clock to 2 o'clock, smooth acceleration into a hard stop, no wrist.",
+        "Strike just hard enough to set the hook — no big hookset needed."
+      ]},
+      { title: "Water temperature, depth & timing", items: [
+        "50–60°F (10–15.5°C) is the key activity range generally; 39°F (4°C) is turnover, when the water mixes top to bottom.",
+        "Cooler water = slower retrieve. A pressure drop or bright sunlight pushes fish deeper.",
+        "Usually less than 15ft, almost always under 25ft — get the fly down near the bottom and retrieve with a strip or slow hand twist.",
+        "Spring window roughly 9am–4:30pm; summer, include late evening after sundown.",
+        "Trout school by size — if you're only catching small fish, move.",
+        "Priority order when adjusting: depth first (usually 1–2ft off bottom), then retrieve (usually slow it down), then pattern."
+      ]},
+      { title: "Retrieve glossary", items: [
+        "Pinch & Strip — an inch-long, slow retrieve; an alternative to the hand twist.",
+        "Rolly Polly — rod under the arm, two-handed fast retrieve; good for baitfish, leeches and attractors; can run slow, medium or fast.",
+        "The Hang — at the end of the retrieve, raise the rod and let the fly hang about a rod-length from the tip; wait 5–10 seconds before recasting.",
+        "Hand Twist — alternate thumb-and-forefinger pinch/pull with a pinky pull, drawing line in a slow, continuous crawl.",
+        "Let the fly swim in a sinusoidal, undulating motion rather than pulling it straight."
+      ]},
+      { title: "Complete fly setups", items: [
+        "Chironomid indicator setup: 5wt 9.5–10ft rod, smooth-coated WF floating line, leader 25–30% longer than the depth fished, quick-release indicator.",
+        "Naked (no-indicator) method on a Type 6 full sink line for fish deeper than 30ft.",
+        "Sinking-line setup (leeches, blobs, boobies): 5–7wt 9–10ft rod; intermediate line for 10–20ft, Type 6 full sink beyond 20ft; short 6–8ft fluorocarbon leader, no indicator.",
+        "Carry a pocket thermometer — start trying chironomids at 50°F, fish leeches and blobs below that."
+      ]},
+      { title: "Seasonal hatch calendar", items: [
+        "Ice-off to late May: shallow, south-facing bays warm first. Blobs, boobies, leeches, baby damsels and scuds; start chironomids once water hits 50°F.",
+        "Spring chironomid season (April–June low elevation, May–July high elevation): net a pupa to match size and colour before choosing a pattern.",
+        "Summer: lower-elevation lakes hit the doldrums above 65°F — move to high-elevation lakes (4,500ft+) or fish 'bomber' chironomid hatches at lakes that stay productive through mid-summer.",
+        "Fall chironomid season (September–November) often matches or beats spring; trout push into shallow weedy areas below 58°F. Leech under an indicator in 5–15ft is highly effective October–November."
+      ]},
+      { title: "Stocked lakes", items: [
+        "FFSBC stocks trout, kokanee and char into 800+ BC lakes a year, using wild broodstock strains (Pennask, Blackwater, Horsefly) rather than domesticated hatchery lines.",
+        "0–3 days after stocking: fish disoriented and schooled tight near the release point — bait fishing most effective, very high catch rates.",
+        "1–2 weeks: fish spread out and adapt — fly fishing starts producing well as they behave more naturally.",
+        "3–4 weeks: fully integrated into the lake ecosystem and feeding on natural food — often the best-quality fly fishing.",
+        "Beyond 4 weeks: catch rates decline but fish condition and fight are at their best — the survivors are worth targeting.",
+        "Check the Lake Report tool at gofishbc.com before any trip — it shows exact stocking dates, sizes and species by waterbody."
+      ]}
+    ],
+    river: [
+      { title: "Reading water", items: [
+        "Look for roughly 1ft/s flow with faster water nearby, in 2–6ft of depth.",
+        "A bubble line on the surface indicates a food supply. Boulders and logs hold fish in front of, beside or behind them.",
+        "A riffle running into a pool is a good target; fish near banks and in seams — fish sit on the slower-moving side.",
+        "If a run is shallow overall, fish the deep spots; if deep overall, fish the shallow spots.",
+        "On a rocky bottom flow is slower near the bottom; on bends, the inside is slower water.",
+        "The tailout of a pool can be excellent during a hatch.",
+        "Avoid: shallow riffle with no cover, flat featureless chutes, and fast uniform water."
+      ]},
+      { title: "Holding spots in detail", items: [
+        "Boulders — fish hold upstream, beside or downstream of the rock.",
+        "Logs parallel to the bank — cast to the end of the log or the calm pocket just behind it.",
+        "Banks — cast as close as possible. Pools below a waterfall often hold large trout.",
+        "Confluences — check the eddies just below where a small stream joins. Side channels are worth checking too."
+      ]},
+      { title: "Indicator fishing tips", items: [
+        "Use the current to cover more ground with the presentation.",
+        "A slow retrieve, a strip-and-release motion, or a waggle of the rod tip gives the fly life."
+      ]},
+      { title: "General swing & retrieve notes", items: [
+        "Moving the rod tip up and down about 18in can give the fly life during a swing; leave it a few seconds at the end before retrieving.",
+        "Standard retrieve: a 6–12in pull at a moderately fast pace, with a short pause. In winter, slow it down and keep the fly near the bottom.",
+        "Match fly brightness to the day — bright day, bright fly; dark or overcast, dark fly.",
+        "In cold water use a dead drift (a dropper nymph can help); this approach is also good after rain when water is rising.",
+        "Cover lots of water rather than over-fishing one spot."
+      ]}
+    ],
+    ocean: [
+      { title: "Winter Chinook (Feeder Chinook)", items: [
+        "Season runs November through March 31, peaking December–March.",
+        "Key areas: Vancouver Harbour (Bell Buoy, Freighters), Howe Sound (south Bowen to Roger Curtis), and Gabriola Island.",
+        "Green/chartreuse flashers with glow tape, paired with spoons in Irish Cream, Trailhead, Outfitter and glow-back finishes.",
+        "Regulation: 2 chinook/day, minimum 62cm — season ends March 31 annually."
+      ]},
+      { title: "Summer hatchery coho", items: [
+        "Season opens June 1 and runs through October, peaking June–August.",
+        "Troll fast, fish the top 25–35ft, and focus on tidelines. UV and reflective finishes work better than glow tape at this shallow depth.",
+        "Coho leaders run 3–4ft for extra spoon action; chinook leaders run 6ft."
+      ]},
+      { title: "Fraser sturgeon, pink & sockeye", items: [
+        "Sturgeon are catch-and-release only — bottom rig with salmon bait, peak August–November; wear gloves for scent hygiene.",
+        "Pink salmon return in odd years only, with a late-August opening and a combined 4-fish daily limit.",
+        "Sockeye openings are trigger-based on in-season run strength — often closed or very limited; check DFO before targeting."
+      ]},
+      { title: "Bottomfish, lingcod & prawns", items: [
+        "Runs concurrently with the salmon fisheries out of False Creek and Howe Sound.",
+        "Closures and limits are area-specific and change in-season — always check current DFO regulations before targeting bottomfish."
+      ]}
+    ]
+  },
   entomology: [
     {
       id: "chironomid", name: "Chironomid (Midge)", latin: "Chironomidae",
@@ -1507,68 +1747,68 @@ window.DATA = {
     { name: "Plato Island Resort", region: "Cariboo Gold Rush", location: "Quesnel Lake", url: "https://www.platoislandresort.com/", phone: "250-620-0037 (toll-free 1-888-620-0037)" },
     { name: "Roberts Roost Resort", region: "Cariboo Gold Rush", location: "Quesnel", url: "https://www.robertsroostresort.com/" },
     { name: "Ten-ee-ah Lodge", region: "Cariboo Gold Rush", location: "Lac La Hache", url: "https://ten-ee-ah.bc.ca/" },
-    { name: "Cottonwood Bay Resort", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Eagan Lake Resort", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Fawn Lake Resort", region: "Highway 24", location: "Fawn Lake" },
-    { name: "Flying U Ranch", region: "Highway 24", location: "70 Mile House" },
-    { name: "Hathaway Lake Resort", region: "Highway 24", location: "Lone Butte" },
+    { name: "Cottonwood Bay Resort", region: "Highway 24", location: "Bridge Lake", url: "https://www.cottonwoodbayresort.com/", phone: "250-593-2345", email: "marlynandmark@cottonwoodbayresort.com", price: "Prices from ~$87/night (RV sites/cabins vary by season)", minStay: "Open May 15 – Oct 1" },
+    { name: "Eagan Lake Resort", region: "Highway 24", location: "Bridge Lake", phone: "250-593-4343" },
+    { name: "Fawn Lake Resort", region: "Highway 24", location: "Fawn Lake", url: "https://fawnlakeresort.com/", email: "info@fawnlakeresort.com" },
+    { name: "Flying U Ranch", region: "Highway 24", location: "70 Mile House", url: "https://www.flyingu.com/", phone: "1-877-456-7717", email: "reservations@flyingu.com", price: "All-inclusive per-person packages (meals & activities included) — contact ranch for current rates", minStay: "3 nights" },
+    { name: "Hathaway Lake Resort", region: "Highway 24", location: "Lone Butte", url: "https://www.hathawaylakeresort.ca/", phone: "250-593-0031", email: "hathawaylakeresort@gmail.com" },
     { name: "Kayanara Resort", region: "Highway 24", location: "Eagle Creek" },
-    { name: "Lac Des Roches Resort", region: "Highway 24", location: "Lac Des Roches" },
-    { name: "Little Black Bear Lodge B&B", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Loon Bay Resort", region: "Highway 24", location: "Lone Butte" },
-    { name: "Marigold Fishing Resort (Cache Creek)", region: "Highway 24", location: "Cache Creek" },
-    { name: "Moosehaven Resort & Campground", region: "Highway 24", location: "Hathaway Lake" },
-    { name: "Piney Point Resort", region: "Highway 24", location: "Sheridan Lake" },
-    { name: "Rainbow Spirit Retreat", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Reynolds Resort", region: "Highway 24", location: "Canim Lake" },
-    { name: "Ruth Lake Lodge", region: "Highway 24", location: "Forest Grove" },
-    { name: "Rustic Resort", region: "Highway 24", location: "Darfield" },
-    { name: "Sheridan Lake Resort", region: "Highway 24", location: "Sheridan Lake" },
-    { name: "South Point Resort", region: "Highway 24", location: "Canim Lake" },
-    { name: "Sulphurous Lake Resort", region: "Highway 24", location: "Lone Butte" },
-    { name: "Wettstone Guest Ranch", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Wolf Valley Guest Ranch", region: "Highway 24", location: "Bridge Lake" },
-    { name: "Anahim Lake Resort", region: "Chilcotin", location: "Anahim Lake" },
-    { name: "Barney's Lakeside Resort", region: "Chilcotin", location: "Chilanko Forks" },
-    { name: "Bear Camp", region: "Chilcotin", location: "Chilko Lake" },
-    { name: "Big Creek Lodge", region: "Chilcotin", location: "Big Creek" },
-    { name: "Bracewell's Alpine Adventure", region: "Chilcotin", location: "Tatlayoko Lake" },
+    { name: "Lac Des Roches Resort", region: "Highway 24", location: "Lac Des Roches", url: "http://lacdesroches.com/", phone: "250-593-4141", email: "info@lacdesroches.com" },
+    { name: "Little Black Bear Lodge B&B", region: "Highway 24", location: "Bridge Lake", phone: "250-593-2272" },
+    { name: "Loon Bay Resort", region: "Highway 24", location: "Lone Butte", url: "https://loonbayresort.com/", phone: "250-593-4431" },
+    { name: "Marigold Fishing Resort (Cache Creek)", region: "Highway 24", location: "Cache Creek", url: "http://www.marigoldresort.com", phone: "250-459-2579", email: "marigoldresort@gmail.com" },
+    { name: "Moosehaven Resort & Campground", region: "Highway 24", location: "Hathaway Lake", url: "https://moosehavenresort.com/", phone: "250-593-2300 (toll-free 1-888-744-2271)", email: "info@moosehavenresort.com" },
+    { name: "Piney Point Resort", region: "Highway 24", location: "Sheridan Lake", url: "https://www.pineypointresortinc.com/" },
+    { name: "Rainbow Spirit Retreat", region: "Highway 24", location: "Bridge Lake", url: "https://www.piri.ca/", phone: "250-706-2778", email: "piri@piri.ca" },
+    { name: "Reynolds Resort", region: "Highway 24", location: "Canim Lake", url: "https://reynoldsresort.com/", phone: "250-397-2244", email: "info@reynoldsresort.com" },
+    { name: "Ruth Lake Lodge", region: "Highway 24", location: "Forest Grove", url: "https://ruthlakelodge.com/", phone: "250-397-2560", email: "ruthlakelodge@gmail.com" },
+    { name: "Rustic Resort", region: "Highway 24", location: "Darfield", url: "https://therusticresort.ca/" },
+    { name: "Sheridan Lake Resort", region: "Highway 24", location: "Sheridan Lake", url: "https://www.sheridanlakeresort.com/", phone: "250-593-4611", email: "fish@sheridanlakeresort.com" },
+    { name: "South Point Resort", region: "Highway 24", location: "Canim Lake", url: "https://southpointresort.ca/", phone: "250-397-2243", email: "southpointresort@gmail.com" },
+    { name: "Sulphurous Lake Resort", region: "Highway 24", location: "Lone Butte", phone: "778-444-6045", email: "reserve.sulphurouslakeresort@gmail.com" },
+    { name: "Wettstone Guest Ranch", region: "Highway 24", location: "Bridge Lake", url: "https://www.wettstone-ranch.com/", phone: "250-593-4487", email: "welcome@wettstone-ranch.com" },
+    { name: "Wolf Valley Guest Ranch", region: "Highway 24", location: "Bridge Lake", url: "https://www.wolfvalleyranch.ca/", phone: "778-767-5214", email: "stay@wolfvalley.ca" },
+    { name: "Anahim Lake Resort", region: "Chilcotin", location: "Anahim Lake", url: "https://anahimlakeresort.ca/", phone: "250-742-3242", email: "anahimresort@gmail.com" },
+    { name: "Barney's Lakeside Resort", region: "Chilcotin", location: "Chilanko Forks", url: "https://www.barneyslakesideresort.com/", phone: "250-481-1100", email: "mail@barneyslakesideresort.com" },
+    { name: "Bear Camp", region: "Chilcotin", location: "Chilko Lake", url: "https://bear-camp.com/", price: "All-inclusive safari-tent packages, 5 days/4 nights; call for pricing and availability" },
+    { name: "Big Creek Lodge", region: "Chilcotin", location: "Big Creek", url: "https://www.bigcreeklodgebc.com/" },
+    { name: "Bracewell's Alpine Adventure", region: "Chilcotin", location: "Tatlayoko Lake", url: "https://www.bracewellawa.com/", phone: "778-949-2046", email: "aaronbrac@gmail.com" },
     { name: "Chaunigan Lake Lodge", region: "Chilcotin", location: "Nemaiah" },
     { name: "Wilderness Trails", region: "Chilcotin", location: "Gold Bridge" },
-    { name: "Chilko Experience Wilderness Resort", region: "Chilcotin" },
+    { name: "Chilko Experience Wilderness Resort", region: "Chilcotin", location: "Chilko Lake", url: "https://www.chilkoexperience.com/", phone: "604-245-0860" },
     { name: "Eagle Bear Lodge", region: "Chilcotin", location: "Tatla Lake" },
-    { name: "Eagle's Nest Resort", region: "Chilcotin", location: "Anahim Lake" },
-    { name: "Fishpot Lake Resort", region: "Chilcotin", location: "Nazko" },
-    { name: "Kinikinik Lodge & Restaurant", region: "Chilcotin", location: "Redstone" },
-    { name: "Nemiah Valley Lodge", region: "Chilcotin", location: "Nemaiah" },
-    { name: "Nimpo Lake Resort", region: "Chilcotin", location: "Nimpo Lake" },
-    { name: "Nuk Tessli Wilderness Experience", region: "Chilcotin", location: "Nimpo Lake" },
-    { name: "Red Cariboo Resort", region: "Chilcotin", location: "Anahim Lake" },
-    { name: "Retreat Wilderness Inn", region: "Chilcotin", location: "Nimpo Lake" },
-    { name: "Stewart's Lodge", region: "Chilcotin", location: "Nimpo Lake" },
-    { name: "Taseko Adventures", region: "Chilcotin", location: "Williams Lake" },
-    { name: "Tatla Lake Manor", region: "Chilcotin", location: "Tatla Lake" },
-    { name: "Terra Nostra Guest Ranch", region: "Chilcotin", location: "Kleena Kleene" },
-    { name: "Tyax Lodge & Heliskiing", region: "Chilcotin", location: "Gold Bridge" },
-    { name: "Whitecap Alpine", region: "Chilcotin", location: "Bralorne" },
-    { name: "Bella Coola Grizzly Tours", region: "Great Bear Rainforest", location: "Bella Coola" },
-    { name: "Bella Coola Mountain Lodge", region: "Great Bear Rainforest", location: "Hagensborg" },
-    { name: "Firvale Wilderness Camp", region: "Great Bear Rainforest", location: "Firvale" },
-    { name: "Great Bear Chalet", region: "Great Bear Rainforest", location: "Tweedsmuir Provincial Park" },
-    { name: "Nusatsum River Guest House", region: "Great Bear Rainforest", location: "Hagensborg" },
-    { name: "Rivers Inlet Sportsman's Club Trophy Fishing Lodge", region: "Great Bear Rainforest", location: "Rivers Inlet" },
-    { name: "Shearwater Marine Resort", region: "Great Bear Rainforest", location: "Denny Island" },
-    { name: "Spindrift Point Cabins", region: "Great Bear Rainforest", location: "Denny Island" },
-    { name: "Spirit Bear Lodge", region: "Great Bear Rainforest", location: "Klemtu" },
-    { name: "Suntree Guest Cottages", region: "Great Bear Rainforest", location: "Firvale" },
-    { name: "Tallheo Cannery Guest House", region: "Great Bear Rainforest", location: "Hagensborg" },
-    { name: "Tweedsmuir Park Lodge", region: "Great Bear Rainforest", location: "Stuie" },
-    { name: "Corbett Lake Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Merritt", url: "https://www.corbettlake.ca/", phone: "250-378-4334" },
-    { name: "Half Diamond Ranch", region: "Merritt, Kamloops & Kelowna", location: "near Merritt" },
-    { name: "Wendego Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Kamloops" },
-    { name: "Postill Lake Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Kelowna" },
-    { name: "Hatheume Lake Resort", region: "Merritt, Kamloops & Kelowna", location: "near Merritt/Kelowna" },
-    { name: "Paradise Lake Retreat", region: "Merritt, Kamloops & Kelowna", location: "Okanagan Connector (Hwy 97C), between Merritt and Peachland/Kelowna" },
+    { name: "Eagle's Nest Resort", region: "Chilcotin", location: "Anahim Lake", url: "https://www.eaglesnest-resort.com/", phone: "250-742-3707" },
+    { name: "Fishpot Lake Resort", region: "Chilcotin", location: "Nazko", address: "10923 Baezaeko Road, Nazko, BC V2J 3H9", url: "https://www.fishpotlakeresort.com/", phone: "403-927-6208", email: "info@fishpotlakeresort.com" },
+    { name: "Kinikinik Lodge & Restaurant", region: "Chilcotin", location: "Redstone", address: "9391 Highway 20, Redstone, BC V0L 1S0", url: "https://pasturetoplate.ca/", phone: "250-394-6000", email: "kinikinik@pasturetoplate.ca" },
+    { name: "Nemiah Valley Lodge", region: "Chilcotin", location: "Nemaiah", address: "3052 Nemiah Valley Road, Nemiah Valley, BC V0L 1X0", url: "https://www.nemiahvalleylodge.com/", phone: "780-792-8113" },
+    { name: "Nimpo Lake Resort", region: "Chilcotin", location: "Nimpo Lake", url: "https://nimpolakeresort.com/", phone: "250-742-3239", email: "info@nimpolakeresort.com" },
+    { name: "Nuk Tessli Wilderness Experience", region: "Chilcotin", location: "Nimpo Lake", address: "PO Box 143, Nimpo Lake, BC V0L 1R0", url: "https://www.nuktessli.com/", phone: "778-252-8287", email: "info@nuktessli.com" },
+    { name: "Red Cariboo Resort", region: "Chilcotin", location: "Anahim Lake", address: "23302 Hwy 20, PO Box 3451, Anahim Lake, BC V0L 1C0", url: "https://www.redcariboo.com/", phone: "250-742-3287", email: "info@redcariboo.com" },
+    { name: "Retreat Wilderness Inn", region: "Chilcotin", location: "Nimpo Lake", address: "21145 Hwy 20 West, PO Box 80, Nimpo Lake, BC V0L 1R0", url: "https://retreatwildernessinn.com/", phone: "250-742-3332", email: "retreatwilderness@gmail.com" },
+    { name: "Stewart's Lodge", region: "Chilcotin", location: "Nimpo Lake", address: "21173 Chilcotin-Bella Coola Hwy, Nimpo Lake, BC V0L 1R0", url: "https://www.stewartslodge.com/" },
+    { name: "Taseko Adventures", region: "Chilcotin", location: "Williams Lake", address: "PO Box 4232, Williams Lake, BC V2G 2V3", url: "https://www.tasekoadventures.com/", phone: "604-484-5174" },
+    { name: "Tatla Lake Manor", region: "Chilcotin", location: "Tatla Lake", address: "16417 Hwy 20, PO Box 58, Tatla Lake, BC V0L 1V0", url: "https://www.tatlalakemotel.com/", phone: "250-476-1339", email: "johannakirby@hotmail.com" },
+    { name: "Terra Nostra Guest Ranch", region: "Chilcotin", location: "Kleena Kleene", address: "19647 Hwy 20, Kleena Kleene, BC V0L 1M0", url: "https://www.terranostra-guestranch.com/", phone: "250-476-1273", email: "terranostra@terranostra-guestranch.com" },
+    { name: "Tyax Lodge & Heliskiing", region: "Chilcotin", location: "Gold Bridge", address: "1 Tyaughton Lake Rd, Gold Bridge, BC V0K 1P0", url: "https://tyaxlodge.com/", phone: "250-238-2221" },
+    { name: "Whitecap Alpine", region: "Chilcotin", location: "Bralorne", url: "https://whitecapalpine.ca/", phone: "604-907-7937", email: "winter@whitecapalpine.ca" },
+    { name: "Bella Coola Grizzly Tours", region: "Great Bear Rainforest", location: "Bella Coola", address: "1953 Mackenzie Hwy 20, Bella Coola, BC V0T 1C0", url: "https://www.bcgrizzlytours.com/", phone: "250-982-0098" },
+    { name: "Bella Coola Mountain Lodge", region: "Great Bear Rainforest", location: "Hagensborg", url: "https://bellacoolamountainlodge.com/", phone: "1-866-982-2298" },
+    { name: "Firvale Wilderness Camp", region: "Great Bear Rainforest", location: "Firvale", address: "43330 Mackenzie Hwy 20, Hagensborg, BC V0T 1H0", url: "https://firvalewildernesscamp.com/", phone: "250-266-0035" },
+    { name: "Great Bear Chalet", region: "Great Bear Rainforest", location: "Tweedsmuir Provincial Park", address: "8080 Mackenzie Hwy 20, Tweedsmuir Provincial Park, BC V0T 1H0", url: "https://greatbearchalet.com/", phone: "604-629-9871", email: "greatbearchalet@xplornet.com" },
+    { name: "Nusatsum River Guest House", region: "Great Bear Rainforest", location: "Hagensborg", address: "2752 Hwy 20, Hagensborg, BC V0T 1H0", phone: "250-982-2348" },
+    { name: "Rivers Inlet Sportsman's Club Trophy Fishing Lodge", region: "Great Bear Rainforest", location: "Rivers Inlet", url: "https://riversinlet.com/", phone: "1-800-663-2644", email: "info@riversinlet.com" },
+    { name: "Shearwater Marine Resort", region: "Great Bear Rainforest", location: "Denny Island", address: "1 Shearwater Rd, Denny Island, BC V0T 1B0", url: "https://shearwater.ca/", phone: "250-957-2540" },
+    { name: "Spindrift Point Cabins", region: "Great Bear Rainforest", location: "Denny Island", address: "PO Box 60, Denny Island, BC V0T 1B0", url: "https://spindriftpoint.com/", phone: "250-957-7920", email: "spindriftpoint@gmail.com" },
+    { name: "Spirit Bear Lodge", region: "Great Bear Rainforest", location: "Klemtu", address: "300 Spirit Bear Dr, Klemtu, BC V0T 1L0", url: "https://spiritbear.com/", phone: "250-339-5644", email: "explore@spiritbear.com" },
+    { name: "Suntree Guest Cottages", region: "Great Bear Rainforest", location: "Firvale", address: "3825 Hammer Rd, Bella Coola, BC V0T 1H0", url: "https://www.suntree.ca/", phone: "250-982-2424" },
+    { name: "Tallheo Cannery Guest House", region: "Great Bear Rainforest", location: "Hagensborg", url: "https://www.bellacoolacannery.com/" },
+    { name: "Tweedsmuir Park Lodge", region: "Great Bear Rainforest", location: "Stuie", address: "7001 Corbould Dr, Stuie, BC V0T 1C0", url: "https://www.tweedsmuirparklodge.com/", phone: "604-905-4994", email: "reservations@tweedsmuirparklodge.com" },
+    { name: "Corbett Lake Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Merritt", address: "10153 Hwy 5A, Merritt, BC V1K 1B8", url: "https://www.corbettlake.ca/", phone: "250-378-4334", email: "corbettlake@gmail.com" },
+    { name: "Half Diamond Ranch", region: "Merritt, Kamloops & Kelowna", location: "near Merritt", address: "4881 Hwy 5A, Aspen Grove, BC V1K 1B8", url: "https://www.guestranchbc.com/", phone: "1-800-357-3198" },
+    { name: "Wendego Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Kamloops", address: "Tranquille Lake, Kamloops, BC", url: "https://wendegolodge.ca/", phone: "250-819-1713" },
+    { name: "Postill Lake Lodge", region: "Merritt, Kamloops & Kelowna", location: "near Kelowna", address: "11950 Postill Lake Rd, Kelowna, BC V1P 1A2", url: "https://postilllake.com/", phone: "250-212-0579", email: "postilllakelodge@gmail.com" },
+    { name: "Hatheume Lake Resort", region: "Merritt, Kamloops & Kelowna", location: "near Merritt/Kelowna", url: "https://hatheumelakeresort.com/", phone: "250-469-9600", email: "Hatheume.Info@gmail.com" },
+    { name: "Paradise Lake Retreat", region: "Merritt, Kamloops & Kelowna", location: "Okanagan Connector (Hwy 97C), between Merritt and Peachland/Kelowna", url: "https://www.paradiselakeretreat.com/", email: "gurneyb@gmail.com" },
     { name: "Douglas Lake Ranch — Quilchena Hotel", region: "Merritt, Kamloops & Kelowna", location: "Quilchena, near Merritt", url: "https://www.douglaslake.com/quilchena-resort", phone: "1-800-663-4838", price: "$3,250/night — entire-facility private rental only (15 rooms, incl. commercial kitchen, parking, boat launch); $3,000 damage deposit", minStay: "2 nights" },
     { name: "Douglas Lake Ranch — Salmon Lake Resort Cabins", region: "Merritt, Kamloops & Kelowna", location: "Salmon Lake, Douglas Lake Ranch", url: "https://www.douglaslake.com/salmon", phone: "1-800-663-4838", price: "1-bed cabins $165/night weekday, $175 weekend; 2-bed cabins $185/night weekday, $195 weekend (max 4 people, +$12/night extra person)", minStay: "2 nights (3 on long weekends)" },
     { name: "Douglas Lake Ranch — Lakeside Yurts", region: "Merritt, Kamloops & Kelowna", location: "Salmon, Wasley, Jerry's & Minnie Lakes, Douglas Lake Ranch", url: "https://www.douglaslake.com/yurt-index", phone: "1-800-663-4838", price: "$300–$475/night depending on lake (Salmon $300, Wasley $325, Jerry's/Mellin $325, Minnie Lake #1 $375, Hidden Yurt at Minnie $475) — sleeps up to 6, 2 rowboats included" },
